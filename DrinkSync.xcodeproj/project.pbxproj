@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8FF3B9761C928E63004DD372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B9751C928E63004DD372 /* AppDelegate.swift */; };
-		8FF3B9781C928E63004DD372 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B9771C928E63004DD372 /* RootViewController.swift */; };
-		8FF3B97A1C928E63004DD372 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B9791C928E63004DD372 /* DataViewController.swift */; };
-		8FF3B97C1C928E63004DD372 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B97B1C928E63004DD372 /* ModelController.swift */; };
 		8FF3B97F1C928E63004DD372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3B97D1C928E63004DD372 /* Main.storyboard */; };
 		8FF3B9811C928E63004DD372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3B9801C928E63004DD372 /* Assets.xcassets */; };
 		8FF3B9841C928E63004DD372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3B9821C928E63004DD372 /* LaunchScreen.storyboard */; };
 		8FF3B98F1C928E63004DD372 /* DrinkSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B98E1C928E63004DD372 /* DrinkSyncTests.swift */; };
 		8FF3B99A1C928E64004DD372 /* DrinkSyncUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B9991C928E64004DD372 /* DrinkSyncUITests.swift */; };
+		8FF3B9A81C92925F004DD372 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B9A71C92925F004DD372 /* MainPageViewController.swift */; };
+		8FF3B9AC1C93B48C004DD372 /* DrinkProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B9AB1C93B48C004DD372 /* DrinkProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +37,6 @@
 /* Begin PBXFileReference section */
 		8FF3B9721C928E63004DD372 /* DrinkSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3B9751C928E63004DD372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8FF3B9771C928E63004DD372 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		8FF3B9791C928E63004DD372 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		8FF3B97B1C928E63004DD372 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		8FF3B97E1C928E63004DD372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FF3B9801C928E63004DD372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FF3B9831C928E63004DD372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +47,8 @@
 		8FF3B9951C928E63004DD372 /* DrinkSyncUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkSyncUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3B9991C928E64004DD372 /* DrinkSyncUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSyncUITests.swift; sourceTree = "<group>"; };
 		8FF3B99B1C928E64004DD372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FF3B9A71C92925F004DD372 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		8FF3B9AB1C93B48C004DD372 /* DrinkProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				8FF3B9751C928E63004DD372 /* AppDelegate.swift */,
-				8FF3B9771C928E63004DD372 /* RootViewController.swift */,
-				8FF3B9791C928E63004DD372 /* DataViewController.swift */,
-				8FF3B97B1C928E63004DD372 /* ModelController.swift */,
 				8FF3B97D1C928E63004DD372 /* Main.storyboard */,
+				8FF3B9A71C92925F004DD372 /* MainPageViewController.swift */,
+				8FF3B9AB1C93B48C004DD372 /* DrinkProgressView.swift */,
 				8FF3B9801C928E63004DD372 /* Assets.xcassets */,
 				8FF3B9821C928E63004DD372 /* LaunchScreen.storyboard */,
 				8FF3B9851C928E63004DD372 /* Info.plist */,
@@ -262,9 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FF3B9781C928E63004DD372 /* RootViewController.swift in Sources */,
-				8FF3B97C1C928E63004DD372 /* ModelController.swift in Sources */,
-				8FF3B97A1C928E63004DD372 /* DataViewController.swift in Sources */,
+				8FF3B9AC1C93B48C004DD372 /* DrinkProgressView.swift in Sources */,
+				8FF3B9A81C92925F004DD372 /* MainPageViewController.swift in Sources */,
 				8FF3B9761C928E63004DD372 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
