@@ -11,7 +11,11 @@ import UIKit
 class DrinkProgressView: UIView {
     private let lineWidth: CGFloat = 2
     private let pi = M_PI
-    let currentPercentage: CGFloat = 0.15
+    let currentPercentage: CGFloat = 0.65
+    let currentAmount = 0.0
+    let goalAmount = 0.0
+    let unit = "blah"
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -57,30 +61,30 @@ class DrinkProgressView: UIView {
     }
     
     func setWaterLevel(){
-        UIColor.blueColor().setFill()
+        let waterBlueColor:UIColor = UIColor.init(colorLiteralRed: 153.0, green: 153.0, blue: 255.0, alpha: 1.0)
+        waterBlueColor.setFill()
+        
         let center = CGPoint(x:bounds.width/2, y: (bounds.height/1.5))
         let waterRadius: CGFloat = bounds.width - (bounds.width/2 - (bounds.width/3.5)) - (bounds.width/2 - (bounds.width/3.5)) - 7.5
         let totalHeight = (((bounds.height/1.5 + 2) - bounds.height/6) + (waterRadius/2 - 2.0/2))
         let topHeight = ((bounds.height/1.5 + 2) - bounds.height/6)
         let bottomHeight = (waterRadius/2 - 2.0/2)
-        
         let topWaterPercentAmount = topHeight / totalHeight
         let bottomWaterPercentAmount = bottomHeight / totalHeight
 
-        let topFilledPercent = totalHeight
+        //to calculate height of top water level
+        let x = currentPercentage - bottomWaterPercentAmount;
+        let y = x / topWaterPercentAmount
+        let z = y * topHeight
+        let finalTopWaterHeight = (bounds.height/1.5 + 2) - z
         
-        print(bottomWaterPercentAmount)
-        print(topWaterPercentAmount)
-        print((bounds.height/6) * topFilledPercent)
-        
-        //top water
         var bottomWaterPercent: CGFloat = 0.0
         if(currentPercentage > bottomWaterPercentAmount){
             let path4 = UIBezierPath()
             
             path4.moveToPoint(CGPoint(
             x:bounds.width/2 - (bounds.width/3.5 - 4.5),
-            y:bounds.height/6
+            y:finalTopWaterHeight
             ))
             path4.addLineToPoint(CGPoint(
             x:bounds.width/2 - (bounds.width/3.5 - 4.5),
@@ -92,7 +96,7 @@ class DrinkProgressView: UIView {
             ))
             path4.addLineToPoint(CGPoint(
             x:bounds.width/2 + (bounds.width/3.5 - 4.5),
-            y:bounds.height/6
+            y:finalTopWaterHeight
             ))
             
             path4.lineWidth = lineWidth
@@ -103,7 +107,7 @@ class DrinkProgressView: UIView {
             bottomWaterPercent = 1 - (currentPercentage / bottomWaterPercentAmount)
         }
 
-        //bottom water
+        //to calculate height of bottom water
         let calculation: CGFloat = bottomWaterPercent * 90
         let radiansToAdd: CGFloat = calculation * CGFloat((pi/180))
         
