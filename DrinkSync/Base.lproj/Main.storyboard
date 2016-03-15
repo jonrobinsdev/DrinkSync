@@ -64,19 +64,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoy-d6-RZD" customClass="DrinkProgressView" customModule="DrinkSync" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhL-8r-ZgB">
-                                                <rect key="frame" x="182" y="228" width="50" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="vhL-8r-ZgB" firstAttribute="centerX" secondItem="eoy-d6-RZD" secondAttribute="centerX" id="CID-xc-vdg"/>
-                                            <constraint firstItem="vhL-8r-ZgB" firstAttribute="centerY" secondItem="eoy-d6-RZD" secondAttribute="centerY" id="bwC-gu-zrS"/>
-                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkY-5v-Eig">
                                         <rect key="frame" x="0.0" y="477" width="414" height="239"/>
