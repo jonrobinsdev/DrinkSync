@@ -28,10 +28,38 @@ class DrinkProgressViewController: UIViewController {
     }
     
     @IBAction func button(sender: AnyObject) {
-        let newPercentage = drinkProgressView.currentPercentage + CGFloat(0.10)
-        self.drinkProgressView.setAttributes(120.0, currentPercentage: newPercentage, unit: "Gallons")
-        let currentPercentage = drinkProgressView.currentPercentage * 100
-        self.percentLabel.text = String(format: "%.0f", currentPercentage) + "%"
+        let waterDropView:UIView = UIView(frame: CGRect(x: 0, y: -150, width: 50, height: 70))
+
+        CATransaction.begin()
+        CATransaction.setCompletionBlock({
+            waterDropView.removeFromSuperview()
+            
+            //cup shake animation
+            let animation = CABasicAnimation(keyPath: "position")
+            animation.duration = 0.25
+            animation.repeatCount = 1
+            animation.autoreverses = true
+            animation.fromValue = NSValue(CGPoint: CGPointMake(self.drinkProgressView.center.x, self.drinkProgressView.center.y))
+            animation.toValue = NSValue(CGPoint: CGPointMake(self.drinkProgressView.center.x, self.drinkProgressView.center.y + 12))
+            self.drinkProgressView.layer.addAnimation(animation, forKey: "position")
+            
+            let newPercentage = self.drinkProgressView.currentPercentage + CGFloat(0.10)
+            self.drinkProgressView.setAttributes(120.0, currentPercentage: newPercentage, unit: "Gallons")
+            let currentPercentage = self.drinkProgressView.currentPercentage * 100
+            self.percentLabel.text = String(format: "%.0f", currentPercentage) + "%"
+        })
+
+        //water drop animation
+        waterDropView.backgroundColor = UIColor.blueColor()
+        drinkProgressView.addSubview(waterDropView)
+        waterDropView.center.x = waterDropView.superview!.center.x
+        let dropAnimation = CABasicAnimation(keyPath: "position")
+        dropAnimation.duration = 0.70
+        dropAnimation.fromValue = NSValue(CGPoint: CGPointMake(waterDropView.center.x, waterDropView.center.y))
+        dropAnimation.toValue = NSValue(CGPoint: CGPointMake(waterDropView.center.x, drinkProgressView.frame.size.height - drinkProgressView.frame.size.height/2))
+        waterDropView.layer.addAnimation(dropAnimation, forKey: "position")
+
+        CATransaction.commit()
     }
 
     /*
