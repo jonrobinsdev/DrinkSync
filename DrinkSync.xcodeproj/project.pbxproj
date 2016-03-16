@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F75A7651C98E5040055D4A2 /* DrinkProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F75A7641C98E5040055D4A2 /* DrinkProgressViewController.swift */; };
 		8FF3B9761C928E63004DD372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B9751C928E63004DD372 /* AppDelegate.swift */; };
 		8FF3B97F1C928E63004DD372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3B97D1C928E63004DD372 /* Main.storyboard */; };
 		8FF3B9811C928E63004DD372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3B9801C928E63004DD372 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F75A7641C98E5040055D4A2 /* DrinkProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkProgressViewController.swift; sourceTree = "<group>"; };
 		8FF3B9721C928E63004DD372 /* DrinkSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3B9751C928E63004DD372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FF3B97E1C928E63004DD372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				8FF3B9751C928E63004DD372 /* AppDelegate.swift */,
 				8FF3B97D1C928E63004DD372 /* Main.storyboard */,
 				8FF3B9A71C92925F004DD372 /* MainPageViewController.swift */,
+				8F75A7641C98E5040055D4A2 /* DrinkProgressViewController.swift */,
 				8FF3B9AB1C93B48C004DD372 /* DrinkProgressView.swift */,
 				8FF3B9801C928E63004DD372 /* Assets.xcassets */,
 				8FF3B9821C928E63004DD372 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F75A7651C98E5040055D4A2 /* DrinkProgressViewController.swift in Sources */,
 				8FF3B9AC1C93B48C004DD372 /* DrinkProgressView.swift in Sources */,
 				8FF3B9A81C92925F004DD372 /* MainPageViewController.swift in Sources */,
 				8FF3B9761C928E63004DD372 /* AppDelegate.swift in Sources */,
@@ -488,6 +492,7 @@
 				8FF3B9A01C928E64004DD372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FF3B9A11C928E64004DD372 /* Build configuration list for PBXNativeTarget "DrinkSyncTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +501,7 @@
 				8FF3B9A31C928E64004DD372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FF3B9A41C928E64004DD372 /* Build configuration list for PBXNativeTarget "DrinkSyncUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +510,7 @@
 				8FF3B9A61C928E64004DD372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -11,16 +11,28 @@ import UIKit
 class DrinkProgressView: UIView {
     private let lineWidth: CGFloat = 2
     private let pi = M_PI
-    let currentPercentage: CGFloat = 0.65
-    let currentAmount = 0.0
-    let goalAmount = 0.0
-    let unit = "blah"
+    private var goalAmount: CGFloat = 0.0
+    var currentPercentage: CGFloat = 0.0
+    var unit = ""
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func drawRect(rect: CGRect) {
+        drawCup()
+        setWaterLevel()
+    }
+    
+    func setAttributes(goalAmount: CGFloat, var currentPercentage: CGFloat, unit: String){
+        if currentPercentage >= 1.0 { currentPercentage = 1.0 }
+        self.goalAmount = goalAmount
+        self.currentPercentage = currentPercentage
+        self.unit = unit
+        self.setNeedsDisplay()
+    }
+    
+    func drawCup(){
         UIColor.grayColor().setStroke()
         
         //sides
@@ -30,19 +42,20 @@ class DrinkProgressView: UIView {
         path.moveToPoint(CGPoint(
             x:bounds.width/2 - bounds.width/3.5,
             y:bounds.height/6
-        ))
+            ))
         path.addLineToPoint(CGPoint(
             x:bounds.width/2 - bounds.width/3.5,
             y:bounds.height/1.5
-        ))
+            ))
         path.moveToPoint(CGPoint(
             x:bounds.width/2 + bounds.width/3.5,
             y:bounds.height/6
-        ))
+            ))
         path.addLineToPoint(CGPoint(
             x:bounds.width/2 + bounds.width/3.5,
             y:bounds.height/1.5
-        ))
+            ))
+        
         //bowl
         let center = CGPoint(x:bounds.width/2, y: (bounds.height/1.5))
         let radius: CGFloat = bounds.width - (bounds.width/2 - (bounds.width/3.5)) - (bounds.width/2 - (bounds.width/3.5)) + 1.5
@@ -56,12 +69,10 @@ class DrinkProgressView: UIView {
         path2.lineWidth = lineWidth
         path.appendPath(path2)
         path.stroke()
-        
-        setWaterLevel();
     }
     
     func setWaterLevel(){
-        let waterBlueColor:UIColor = UIColor.init(colorLiteralRed: 153.0, green: 153.0, blue: 255.0, alpha: 1.0)
+        let waterBlueColor:UIColor = UIColor.init(colorLiteralRed: 28.0/255.0, green: 163.0/255.0, blue: 236.0/255.0, alpha: 1.0)
         waterBlueColor.setFill()
         
         let center = CGPoint(x:bounds.width/2, y: (bounds.height/1.5))
@@ -88,11 +99,11 @@ class DrinkProgressView: UIView {
             ))
             path4.addLineToPoint(CGPoint(
             x:bounds.width/2 - (bounds.width/3.5 - 4.5),
-            y:bounds.height/1.5 + 2
+            y:bounds.height/1.5 + 4
             ))
             path4.addLineToPoint(CGPoint(
             x:bounds.width/2 + (bounds.width/3.5 - 4.5),
-            y:bounds.height/1.5 + 2
+            y:bounds.height/1.5 + 4
             ))
             path4.addLineToPoint(CGPoint(
             x:bounds.width/2 + (bounds.width/3.5 - 4.5),
@@ -107,7 +118,7 @@ class DrinkProgressView: UIView {
             bottomWaterPercent = 1 - (currentPercentage / bottomWaterPercentAmount)
         }
 
-        //to calculate height of bottom water
+        //to calculate height of bottom water level
         let calculation: CGFloat = bottomWaterPercent * 90
         let radiansToAdd: CGFloat = calculation * CGFloat((pi/180))
         

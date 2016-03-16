@@ -12,8 +12,8 @@ class MainPageViewController: UIPageViewController {
     
     private var orderedViewControllers: [UIViewController] =
     [UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("FirstView"),
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SecondView"),
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ThirdView")];
+     UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SecondView"),
+     UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ThirdView")];
     
     override func viewDidLoad() {
         super.viewDidLoad()
