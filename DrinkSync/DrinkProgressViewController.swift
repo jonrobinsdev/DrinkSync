@@ -36,14 +36,14 @@ class DrinkProgressViewController: UIViewController {
             
             //cup shake animation
             let animation = CABasicAnimation(keyPath: "position")
-            animation.duration = 0.25
+            animation.duration = 0.20
             animation.repeatCount = 1
             animation.autoreverses = true
             animation.fromValue = NSValue(CGPoint: CGPointMake(self.drinkProgressView.center.x, self.drinkProgressView.center.y))
             animation.toValue = NSValue(CGPoint: CGPointMake(self.drinkProgressView.center.x, self.drinkProgressView.center.y + 12))
             self.drinkProgressView.layer.addAnimation(animation, forKey: "position")
             
-            let newPercentage = self.drinkProgressView.currentPercentage + CGFloat(0.10)
+            let newPercentage = self.drinkProgressView.currentPercentage + CGFloat(0.05)
             self.drinkProgressView.setAttributes(120.0, currentPercentage: newPercentage, unit: "Gallons")
             let currentPercentage = self.drinkProgressView.currentPercentage * 100
             self.percentLabel.text = String(format: "%.0f", currentPercentage) + "%"
