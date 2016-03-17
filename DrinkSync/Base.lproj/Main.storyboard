@@ -62,38 +62,82 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Sr-G0-pTf">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoy-d6-RZD" customClass="DrinkProgressView" customModule="DrinkSync" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkY-5v-Eig">
                                         <rect key="frame" x="0.0" y="477" width="414" height="239"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGY-Sm-LrP">
-                                                <rect key="frame" x="169" y="105" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Un3-LA-HPJ">
+                                                <rect key="frame" x="314" y="50" width="50" height="50"/>
+                                                <color key="backgroundColor" red="0.91700774431228638" green="0.89172440767288208" blue="0.27376562356948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="button:" destination="GDt-XF-v8h" eventType="touchUpInside" id="6ug-Uj-EBi"/>
+                                                    <action selector="rightDrink:" destination="GDt-XF-v8h" eventType="touchUpInside" id="sAB-2B-ruc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3S3-EC-QcA">
+                                                <rect key="frame" x="50" y="50" width="50" height="50"/>
+                                                <color key="backgroundColor" red="0.4419080702" green="0.60357119439999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="leftDrink:" destination="GDt-XF-v8h" eventType="touchUpInside" id="pMd-WS-Qzf"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+5 oz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-0f-X3L">
+                                                <rect key="frame" x="55" y="120" width="41" height="20"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <color key="textColor" red="0.2784313725" green="0.33333333329999998" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10 oz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7h-iw-D9g">
+                                                <rect key="frame" x="183" y="120" width="49" height="20"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <color key="textColor" red="0.2784313725" green="0.33333333329999998" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+20 oz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fY-OP-jfJ">
+                                                <rect key="frame" x="314" y="120" width="50" height="20"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <color key="textColor" red="0.2784313725" green="0.33333333329999998" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGY-Sm-LrP">
+                                                <rect key="frame" x="182" y="50" width="50" height="50"/>
+                                                <color key="backgroundColor" red="0.9099307656288147" green="0.46740907430648804" blue="0.44172245264053345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="M3p-WL-bch"/>
+                                                    <constraint firstAttribute="width" constant="50" id="m0e-TE-d7l"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="middleDrink:" destination="GDt-XF-v8h" eventType="touchUpInside" id="d7h-Z1-cYg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.93583613634109497" green="0.72276896238327026" blue="0.74489468336105347" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="Un3-LA-HPJ" firstAttribute="height" secondItem="gGY-Sm-LrP" secondAttribute="height" id="0ar-Eh-hjj"/>
+                                            <constraint firstItem="3S3-EC-QcA" firstAttribute="width" secondItem="gGY-Sm-LrP" secondAttribute="width" id="27P-OL-KDc"/>
                                             <constraint firstItem="gGY-Sm-LrP" firstAttribute="centerY" secondItem="pkY-5v-Eig" secondAttribute="centerY" id="2Ca-xg-8ua"/>
                                             <constraint firstItem="gGY-Sm-LrP" firstAttribute="centerX" secondItem="pkY-5v-Eig" secondAttribute="centerX" id="2pX-Ue-LqA"/>
+                                            <constraint firstItem="U7h-iw-D9g" firstAttribute="centerX" secondItem="gGY-Sm-LrP" secondAttribute="centerX" id="5jC-GR-ufo"/>
+                                            <constraint firstItem="U7h-iw-D9g" firstAttribute="top" secondItem="gGY-Sm-LrP" secondAttribute="bottom" constant="20" id="D75-n6-cLT"/>
+                                            <constraint firstItem="Un3-LA-HPJ" firstAttribute="width" secondItem="gGY-Sm-LrP" secondAttribute="width" id="FAh-fI-axh"/>
+                                            <constraint firstItem="zkw-0f-X3L" firstAttribute="centerX" secondItem="3S3-EC-QcA" secondAttribute="centerX" id="IgA-Hj-sue"/>
+                                            <constraint firstAttribute="trailing" secondItem="Un3-LA-HPJ" secondAttribute="trailing" constant="50" id="Jyb-lV-HNK"/>
+                                            <constraint firstItem="zkw-0f-X3L" firstAttribute="top" secondItem="3S3-EC-QcA" secondAttribute="bottom" constant="20" id="Rhc-4z-Vlg"/>
+                                            <constraint firstItem="3S3-EC-QcA" firstAttribute="height" secondItem="gGY-Sm-LrP" secondAttribute="height" id="WOq-ni-wKw"/>
+                                            <constraint firstItem="Un3-LA-HPJ" firstAttribute="centerY" secondItem="gGY-Sm-LrP" secondAttribute="centerY" id="cTS-sK-rtm"/>
+                                            <constraint firstItem="3S3-EC-QcA" firstAttribute="leading" secondItem="pkY-5v-Eig" secondAttribute="leading" constant="50" id="eeH-iV-HsT"/>
+                                            <constraint firstItem="gGY-Sm-LrP" firstAttribute="top" secondItem="pkY-5v-Eig" secondAttribute="top" constant="50" id="kGR-dU-ffO"/>
+                                            <constraint firstItem="9fY-OP-jfJ" firstAttribute="centerX" secondItem="Un3-LA-HPJ" secondAttribute="centerX" id="lxk-Uz-Wks"/>
+                                            <constraint firstItem="3S3-EC-QcA" firstAttribute="centerY" secondItem="gGY-Sm-LrP" secondAttribute="centerY" id="u7B-Mt-STZ"/>
+                                            <constraint firstItem="9fY-OP-jfJ" firstAttribute="top" secondItem="Un3-LA-HPJ" secondAttribute="bottom" constant="20" id="yLU-7a-8CM"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoy-d6-RZD" customClass="DrinkProgressView" customModule="DrinkSync" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moS-ao-Uo1">
-                                                <rect key="frame" x="160" y="214" width="94" height="49"/>
-                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="40"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="moS-ao-Uo1" firstAttribute="centerY" secondItem="eoy-d6-RZD" secondAttribute="centerY" id="7Ma-aS-as8"/>
-                                            <constraint firstItem="moS-ao-Uo1" firstAttribute="centerX" secondItem="eoy-d6-RZD" secondAttribute="centerX" id="Vnm-N0-QpY"/>
-                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2Ca-xg-8ua"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85739248991012573" green="0.90870398283004761" blue="0.96624559164047241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,8 +163,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="drinkProgressView" destination="eoy-d6-RZD" id="EsE-r8-Zne"/>
-                        <outlet property="percentLabel" destination="moS-ao-Uo1" id="qMd-RA-sCY"/>
+                        <outlet property="drinkProgressView" destination="eoy-d6-RZD" id="2i7-nj-6KT"/>
+                        <outlet property="leftDrinkButton" destination="3S3-EC-QcA" id="Dp4-8W-mdN"/>
+                        <outlet property="middleDrinkButton" destination="gGY-Sm-LrP" id="mPO-XC-Ab1"/>
+                        <outlet property="rightDrinkButton" destination="Un3-LA-HPJ" id="eEk-XS-eul"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXv-zz-ziN" userLabel="First Responder" sceneMemberID="firstResponder"/>

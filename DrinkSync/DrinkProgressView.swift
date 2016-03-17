@@ -9,19 +9,32 @@
 import UIKit
 
 class DrinkProgressView: UIView {
+    
+    var percentLabel: UILabel!
     private let lineWidth: CGFloat = 2
-    /*private var previousPaths: [UIBezierPath] = []
-    private var hasPreviousPaths:Bool = false*/
     private let pi = M_PI
     private var goalAmount: CGFloat = 0.0
-    var currentPercentage: CGFloat = 0.0
-    var unit = ""
+    private var currentPercentage: CGFloat = 0.0
+    private var unit = ""
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.percentLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
     }
     
     override func drawRect(rect: CGRect) {
+        
+        //percent label
+        let labelPercentage = self.currentPercentage * 100
+        percentLabel.text = String(format: "%.0f", labelPercentage) + "%"
+        percentLabel.font = UIFont(name: "Avenir-Light", size: 26.0)
+        percentLabel.textAlignment = .Center
+        percentLabel.removeFromSuperview()
+        self.addSubview(percentLabel)
+        percentLabel.center.x = percentLabel.superview!.center.x
+        percentLabel.center.y = percentLabel.superview!.center.y
+        
+        //path drawings
         drawCup()
         setWaterLevel()
     }
@@ -135,18 +148,50 @@ class DrinkProgressView: UIView {
             clockwise: false)
         path3.lineWidth = lineWidth
         path3.fill()
-
-        /*if(hasPreviousPaths){
-            waterBlueColor.setFill()
-            previousPaths[0].fill()
-            previousPaths[1].fill()
-        }
-        setPreviousPaths(path3, secondPath: path4)*/
     }
     
-    /*func setPreviousPaths(firstPath :UIBezierPath, secondPath:UIBezierPath){
-        previousPaths.insert(firstPath, atIndex: 0)
-        previousPaths.insert(secondPath, atIndex: 1)
-        hasPreviousPaths = true
-    }*/
+    func addWater(value:CGFloat){
+        var dropSize:Int = 0
+        if(value/goalAmount <= 0.05){
+            dropSize = 40 }
+        else if(value/goalAmount > 0.05 && value/goalAmount <= 0.10){
+            dropSize = 50 }
+        else{
+            dropSize = 60 }
+        let waterDropView:UIView = UIView(frame: CGRect(x: 0, y: -150, width: dropSize, height: dropSize))
+        waterDropView.backgroundColor = UIColor.init(colorLiteralRed: 16.0/255.0, green: 133.0/255.0, blue: 296.0/255.0, alpha: 1.0)
+        waterDropView.layer.cornerRadius = waterDropView.frame.size.width/2
+        self.addSubview(waterDropView)
+        waterDropView.center.x = waterDropView.superview!.center.x
+        
+        CATransaction.begin()
+        //callback for water drop animation
+        CATransaction.setCompletionBlock({
+            waterDropView.removeFromSuperview()
+            
+            //cup shake animation
+            let animation = CABasicAnimation(keyPath: "position")
+            animation.duration = 0.20
+            animation.repeatCount = 1
+            animation.autoreverses = true
+            animation.fromValue = NSValue(CGPoint: CGPointMake(self.center.x, self.center.y))
+            animation.toValue = NSValue(CGPoint: CGPointMake(self.center.x, self.center.y + 12))
+            self.layer.addAnimation(animation, forKey: "position")
+            
+            //incrementing cup
+            let newPercentage = self.currentPercentage + value
+            self.setAttributes(self.goalAmount, currentPercentage: newPercentage, unit: "Gallons")
+            let currentPercentage = self.currentPercentage * 100
+            self.percentLabel.text = String(format: "%.0f", currentPercentage) + "%"
+        })
+        
+        //water drop animation
+        let dropAnimation = CABasicAnimation(keyPath: "position")
+        dropAnimation.duration = 0.70
+        dropAnimation.fromValue = NSValue(CGPoint: CGPointMake(waterDropView.center.x, waterDropView.center.y))
+        dropAnimation.toValue = NSValue(CGPoint: CGPointMake(waterDropView.center.x, self.frame.size.height - self.frame.size.height/3))
+        waterDropView.layer.addAnimation(dropAnimation, forKey: "position")
+        
+        CATransaction.commit()
+    }
 }
