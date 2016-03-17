@@ -10,7 +10,8 @@ import UIKit
 
 class DrinkProgressView: UIView {
     
-    var percentLabel: UILabel!
+    private var percentLabel: UILabel!
+    private var resetButton: UIButton!
     private let lineWidth: CGFloat = 2
     private let pi = M_PI
     private var goalAmount: CGFloat = 0.0
@@ -19,30 +20,44 @@ class DrinkProgressView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.percentLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
     }
     
     override func drawRect(rect: CGRect) {
+        //reset button
+        if(self.resetButton == nil){
+            resetButton = UIButton(type: UIButtonType.Custom) as UIButton
+            resetButton.frame = CGRectMake(20, 10, 30, 30)
+            resetButton.setTitle("reset", forState: UIControlState.Normal)
+            resetButton.addTarget(self, action:"resetDrinkProgressView", forControlEvents: UIControlEvents.TouchUpInside)
+            resetButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            resetButton.backgroundColor = UIColor.grayColor()
+            resetButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 10)
+            self.addSubview(resetButton)
+            resetButton.center.y = resetButton.superview!.frame.size.height - resetButton.superview!.frame.size.height/12
+            resetButton.hidden = true
+        }
         
         //percent label
+        if(self.percentLabel == nil){
+            percentLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+            percentLabel.font = UIFont(name: "Avenir-Light", size: 26.0)
+            percentLabel.textAlignment = .Center
+            self.addSubview(percentLabel)
+            percentLabel.center.x = percentLabel.superview!.center.x
+            percentLabel.center.y = percentLabel.superview!.center.y
+        }
         let labelPercentage = self.currentPercentage * 100
         percentLabel.text = String(format: "%.0f", labelPercentage) + "%"
-        percentLabel.font = UIFont(name: "Avenir-Light", size: 26.0)
-        percentLabel.textAlignment = .Center
-        percentLabel.removeFromSuperview()
-        self.addSubview(percentLabel)
-        percentLabel.center.x = percentLabel.superview!.center.x
-        percentLabel.center.y = percentLabel.superview!.center.y
         
         //path drawings
         drawCup()
         setWaterLevel()
     }
     
-    func setAttributes(goalAmount: CGFloat, var currentPercentage: CGFloat, unit: String){
+    func setAttributes(goalAmount: CGFloat, percentage: CGFloat, unit: String){
         if currentPercentage >= 1.0 { currentPercentage = 1.0 }
         self.goalAmount = goalAmount
-        self.currentPercentage = currentPercentage
+        self.currentPercentage = percentage
         self.unit = unit
         self.setNeedsDisplay()
     }
@@ -151,6 +166,8 @@ class DrinkProgressView: UIView {
     }
     
     func addWater(value:CGFloat){
+        self.resetButton.hidden = false
+
         var dropSize:Int = 0
         if(value/goalAmount <= 0.05){
             dropSize = 40 }
@@ -178,11 +195,13 @@ class DrinkProgressView: UIView {
             animation.toValue = NSValue(CGPoint: CGPointMake(self.center.x, self.center.y + 12))
             self.layer.addAnimation(animation, forKey: "position")
             
-            //incrementing cup
-            let newPercentage = self.currentPercentage + value
-            self.setAttributes(self.goalAmount, currentPercentage: newPercentage, unit: "Gallons")
-            let currentPercentage = self.currentPercentage * 100
-            self.percentLabel.text = String(format: "%.0f", currentPercentage) + "%"
+            //incrementing cup and changing current percent
+            let newPercentage = (self.currentPercentage * self.goalAmount) + value
+            self.currentPercentage = newPercentage/self.goalAmount
+            self.setNeedsDisplay()
+            let percentLabelTextValue = self.currentPercentage * 100
+            self.percentLabel.text = String(format: "%.0f", percentLabelTextValue) + "%"
+            self.checkGoalIsMet()
         })
         
         //water drop animation
@@ -193,5 +212,24 @@ class DrinkProgressView: UIView {
         waterDropView.layer.addAnimation(dropAnimation, forKey: "position")
         
         CATransaction.commit()
+    }
+    
+    func checkGoalIsMet(){
+        print(self.currentPercentage)
+        if(self.currentPercentage >= 1.0){
+            goalCompleted()
+        } //had to add in because CGFloat for some reason doesn't round all the way
+        else if((self.currentPercentage + 0.001) >= 1.0){
+            goalCompleted()
+        }
+    }
+    
+    func goalCompleted(){
+        //add animation here for goal complete
+    }
+    
+    func resetDrinkProgressView(){
+        self.resetButton.hidden = true
+        self.setAttributes(self.goalAmount, percentage: 0.0, unit: self.unit)
     }
 }
