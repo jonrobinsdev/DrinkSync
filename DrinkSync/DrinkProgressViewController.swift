@@ -18,7 +18,7 @@ class DrinkProgressViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.drinkProgressView.setAttributes(2.0, percentage: 0.00, unit: "Gallons")
+        self.drinkProgressView.setAttributes(1.0, percentage: 0.00, unit: "Gallons")
         self.leftDrinkButton.layer.cornerRadius = leftDrinkButton.frame.size.width/2
         self.middleDrinkButton.layer.cornerRadius = middleDrinkButton.frame.size.width/2
         self.rightDrinkButton.layer.cornerRadius = rightDrinkButton.frame.size.width/2

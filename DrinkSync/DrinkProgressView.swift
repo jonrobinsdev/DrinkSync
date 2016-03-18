@@ -10,8 +10,14 @@ import UIKit
 
 class DrinkProgressView: UIView {
     
+    private var cupView: UIView!
+    private var cupViewLayer1: CAShapeLayer = CAShapeLayer()
+    private var cupViewLayer2: CAShapeLayer = CAShapeLayer()
+    private var cupViewLayer3: CAShapeLayer = CAShapeLayer()
+    private var cupViewLayer4: CAShapeLayer = CAShapeLayer()
     private var percentLabel: UILabel!
     private var resetButton: UIButton!
+    
     private let lineWidth: CGFloat = 2
     private let pi = M_PI
     private var goalAmount: CGFloat = 0.0
@@ -23,6 +29,13 @@ class DrinkProgressView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
+        
+        //foreground view
+        if(cupView == nil){
+            cupView = UIView(frame: self.frame)
+            self.addSubview(cupView)
+        }
+        
         //reset button
         if(self.resetButton == nil){
             resetButton = UIButton(type: UIButtonType.Custom) as UIButton
@@ -40,7 +53,8 @@ class DrinkProgressView: UIView {
         //percent label
         if(self.percentLabel == nil){
             percentLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-            percentLabel.font = UIFont(name: "Avenir-Light", size: 26.0)
+            percentLabel.font = UIFont(name: "Menlo", size: 35.0)
+            percentLabel.textColor = UIColor.init(colorLiteralRed: 86.0/255.0, green: 102.0/255.0, blue: 108.0/255.0, alpha: 1.0)
             percentLabel.textAlignment = .Center
             self.addSubview(percentLabel)
             percentLabel.center.x = percentLabel.superview!.center.x
@@ -63,8 +77,6 @@ class DrinkProgressView: UIView {
     }
     
     func drawCup(){
-        UIColor.grayColor().setStroke()
-        
         //sides
         let path1 = UIBezierPath()
         path1.lineWidth = lineWidth
@@ -96,18 +108,24 @@ class DrinkProgressView: UIView {
             startAngle: startAngle,
             endAngle: endAngle,
             clockwise: true)
-        path2.lineWidth = lineWidth
-        path1.appendPath(path2)
-        path1.stroke()
+        
+        //cupView layers
+        cupViewLayer1.path = path1.CGPath
+        cupViewLayer1.lineWidth = lineWidth
+        cupViewLayer1.strokeColor = UIColor.grayColor().CGColor
+        cupViewLayer2.path = path2.CGPath
+        cupViewLayer2.lineWidth = lineWidth
+        cupViewLayer2.strokeColor = UIColor.grayColor().CGColor
+        cupViewLayer2.fillColor = nil
+        self.cupView.layer.addSublayer(cupViewLayer1)
+        self.cupView.layer.addSublayer(cupViewLayer2)
     }
     
     func setWaterLevel(){
         var path3 = UIBezierPath()
         let path4 = UIBezierPath()
         
-        let waterBlueColor:UIColor = UIColor.init(colorLiteralRed: 28.0/255.0, green: 163.0/255.0, blue: 236.0/255.0, alpha: 1.0)
-        waterBlueColor.setFill()
-        //UIColor.blueColor().setFill()
+        let waterBlueColor:UIColor = UIColor.init(colorLiteralRed: 99.0/255.0, green: 192.0/255.0, blue: 242.0/255.0, alpha: 1.0)
         
         let center = CGPoint(x:bounds.width/2, y: (bounds.height/1.5))
         let waterRadius: CGFloat = bounds.width - (bounds.width/2 - (bounds.width/3.5)) - (bounds.width/2 - (bounds.width/3.5)) - 7.5
@@ -142,9 +160,7 @@ class DrinkProgressView: UIView {
             y:finalTopWaterHeight
             ))
             
-            path4.lineWidth = lineWidth
             path4.closePath()
-            path4.fill()
         }
         else{
             bottomWaterPercent = 1 - (currentPercentage / bottomWaterPercentAmount)
@@ -161,13 +177,23 @@ class DrinkProgressView: UIView {
             startAngle: startAngle,
             endAngle: endAngle,
             clockwise: false)
-        path3.lineWidth = lineWidth
-        path3.fill()
+        
+        //cupView layers
+        cupViewLayer3.path = path3.CGPath
+        cupViewLayer3.lineWidth = lineWidth
+        cupViewLayer3.fillColor = waterBlueColor.CGColor
+        //layer1.strokeColor = waterBlueColor
+        cupViewLayer4.path = path4.CGPath
+        cupViewLayer4.lineWidth = lineWidth
+        cupViewLayer4.fillColor = waterBlueColor.CGColor
+        //layer2.strokeColor = nil
+        self.cupView.layer.addSublayer(cupViewLayer3)
+        self.cupView.layer.addSublayer(cupViewLayer4)
     }
     
     func addWater(value:CGFloat){
-        self.resetButton.hidden = false
-
+        self.resetButton.enabled = false
+        
         var dropSize:Int = 0
         if(value/goalAmount <= 0.05){
             dropSize = 40 }
@@ -193,14 +219,19 @@ class DrinkProgressView: UIView {
             animation.autoreverses = true
             animation.fromValue = NSValue(CGPoint: CGPointMake(self.center.x, self.center.y))
             animation.toValue = NSValue(CGPoint: CGPointMake(self.center.x, self.center.y + 12))
-            self.layer.addAnimation(animation, forKey: "position")
+            self.percentLabel.layer.addAnimation(animation, forKey: "position")
+            self.cupView.layer.addAnimation(animation, forKey: "position")
             
             //incrementing cup and changing current percent
             let newPercentage = (self.currentPercentage * self.goalAmount) + value
             self.currentPercentage = newPercentage/self.goalAmount
+            if(self.currentPercentage > 1.0){ self.currentPercentage = 1.0 }
             self.setNeedsDisplay()
             let percentLabelTextValue = self.currentPercentage * 100
             self.percentLabel.text = String(format: "%.0f", percentLabelTextValue) + "%"
+            
+            self.resetButton.hidden = false
+            self.resetButton.enabled = true
             self.checkGoalIsMet()
         })
         
@@ -215,7 +246,6 @@ class DrinkProgressView: UIView {
     }
     
     func checkGoalIsMet(){
-        print(self.currentPercentage)
         if(self.currentPercentage >= 1.0){
             goalCompleted()
         } //had to add in because CGFloat for some reason doesn't round all the way
