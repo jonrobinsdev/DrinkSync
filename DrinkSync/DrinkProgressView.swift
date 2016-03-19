@@ -40,11 +40,9 @@ class DrinkProgressView: UIView {
         if(self.resetButton == nil){
             resetButton = UIButton(type: UIButtonType.Custom) as UIButton
             resetButton.frame = CGRectMake(20, 10, 30, 30)
-            resetButton.setTitle("reset", forState: UIControlState.Normal)
-            resetButton.addTarget(self, action:"resetDrinkProgressView", forControlEvents: UIControlEvents.TouchUpInside)
             resetButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            resetButton.backgroundColor = UIColor.grayColor()
-            resetButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 10)
+            resetButton.setBackgroundImage(UIImage(named: "reseticon.png"), forState: UIControlState.Normal)
+            resetButton.addTarget(self, action:"resetDrinkProgressView", forControlEvents: UIControlEvents.TouchUpInside)
             self.addSubview(resetButton)
             resetButton.center.y = resetButton.superview!.frame.size.height - resetButton.superview!.frame.size.height/12
             resetButton.hidden = true
