@@ -67,7 +67,6 @@ class DrinkProgressView: UIView {
     }
     
     func setAttributes(goalAmount: CGFloat, percentage: CGFloat, unit: String){
-        if currentPercentage >= 1.0 { currentPercentage = 1.0 }
         self.goalAmount = goalAmount
         self.currentPercentage = percentage
         self.unit = unit
@@ -137,10 +136,11 @@ class DrinkProgressView: UIView {
         let x = currentPercentage - bottomWaterPercentAmount;
         let y = x / topWaterPercentAmount
         let z = y * topHeight
-        let finalTopWaterHeight = (bounds.height/1.5 + 2) - z
-        
+        var finalTopWaterHeight = (bounds.height/1.5 + 2) - z
         var bottomWaterPercent: CGFloat = 0.0
         if(currentPercentage > bottomWaterPercentAmount){
+            //check that it's at 100% or not
+            if currentPercentage >= 1.0 { finalTopWaterHeight = bounds.height/6 }
             path4.moveToPoint(CGPoint(
             x:bounds.width/2 - (bounds.width/3.5 - 4.5),
             y:finalTopWaterHeight
@@ -157,7 +157,6 @@ class DrinkProgressView: UIView {
             x:bounds.width/2 + (bounds.width/3.5 - 4.5),
             y:finalTopWaterHeight
             ))
-            
             path4.closePath()
         }
         else{
@@ -167,7 +166,6 @@ class DrinkProgressView: UIView {
         //to calculate height of bottom water level
         let calculation: CGFloat = bottomWaterPercent * 90
         let radiansToAdd: CGFloat = calculation * CGFloat((pi/180))
-        
         let startAngle: CGFloat = -CGFloat(CGFloat(pi) + radiansToAdd)
         let endAngle: CGFloat = -CGFloat(0 - radiansToAdd)
         path3 = UIBezierPath(arcCenter: center,
@@ -179,12 +177,11 @@ class DrinkProgressView: UIView {
         //cupView layers
         cupViewLayer3.path = path3.CGPath
         cupViewLayer3.lineWidth = lineWidth
-        cupViewLayer3.fillColor = waterBlueColor.CGColor
-        //layer1.strokeColor = waterBlueColor
+        if currentPercentage == 0.0 { cupViewLayer3.fillColor = UIColor.clearColor().CGColor
+        } else { cupViewLayer3.fillColor = waterBlueColor.CGColor}
         cupViewLayer4.path = path4.CGPath
         cupViewLayer4.lineWidth = lineWidth
         cupViewLayer4.fillColor = waterBlueColor.CGColor
-        //layer2.strokeColor = nil
         self.cupView.layer.addSublayer(cupViewLayer3)
         self.cupView.layer.addSublayer(cupViewLayer4)
     }
@@ -223,7 +220,6 @@ class DrinkProgressView: UIView {
             //incrementing cup and changing current percent
             let newPercentage = (self.currentPercentage * self.goalAmount) + value
             self.currentPercentage = newPercentage/self.goalAmount
-            if(self.currentPercentage > 1.0){ self.currentPercentage = 1.0 }
             self.setNeedsDisplay()
             let percentLabelTextValue = self.currentPercentage * 100
             self.percentLabel.text = String(format: "%.0f", percentLabelTextValue) + "%"

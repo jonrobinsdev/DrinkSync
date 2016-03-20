@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.topSpacingConstraint.constant = self.view.frame.height/10
+        self.topSpacingConstraint.constant = 15
     }
 
     override func didReceiveMemoryWarning() {
