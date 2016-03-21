@@ -19,9 +19,23 @@ class DrinkProgressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.drinkProgressView.setAttributes(1.0, percentage: 0.00, unit: "Gallons")
-        self.leftDrinkButton.layer.cornerRadius = leftDrinkButton.frame.size.width/2
-        self.middleDrinkButton.layer.cornerRadius = middleDrinkButton.frame.size.width/2
-        self.rightDrinkButton.layer.cornerRadius = rightDrinkButton.frame.size.width/2
+        
+        //buttons
+        self.leftDrinkButton.layer.cornerRadius = leftDrinkButton.frame.size.width/4
+        self.leftDrinkButton.layer.shadowRadius = 3.0
+        self.leftDrinkButton.layer.shadowColor = UIColor.blackColor().CGColor
+        self.leftDrinkButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
+        self.leftDrinkButton.layer.shadowOpacity = 0.5
+        self.middleDrinkButton.layer.cornerRadius = middleDrinkButton.frame.size.width/4
+        self.middleDrinkButton.layer.shadowRadius = 3.0
+        self.middleDrinkButton.layer.shadowColor = UIColor.blackColor().CGColor
+        self.middleDrinkButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
+        self.middleDrinkButton.layer.shadowOpacity = 0.5
+        self.rightDrinkButton.layer.cornerRadius = rightDrinkButton.frame.size.width/4
+        self.rightDrinkButton.layer.shadowRadius = 3.0
+        self.rightDrinkButton.layer.shadowColor = UIColor.blackColor().CGColor
+        self.rightDrinkButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
+        self.rightDrinkButton.layer.shadowOpacity = 0.5
     }
 
     override func didReceiveMemoryWarning() {
