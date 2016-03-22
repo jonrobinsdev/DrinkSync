@@ -10,6 +10,9 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    private var currentUnit:String = ""
+    
     @IBOutlet var topSpacingConstraint: NSLayoutConstraint!
     
     @IBOutlet var unitSegmentController: UISegmentedControl!
@@ -28,6 +31,11 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         self.topSpacingConstraint.constant = 15
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true);
+        setUserDefaults()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,31 +45,55 @@ class SettingsViewController: UIViewController {
     @IBAction func segmentedControlChanged(sender: AnyObject) {
         let segcontrol: UISegmentedControl = sender as! UISegmentedControl
         if(segcontrol.selectedSegmentIndex == 0){
-            print("oz")
+            defaults.setValue("oz", forKey: "unit")
+            setUserDefaults()
         }
         else{
-            print("ml")
+            defaults.setValue("ml", forKey: "unit")
+            setUserDefaults()
         }
     }
     
     @IBAction func sliderValueChanged(sender: AnyObject) {
-        let slider:UISlider = sender as! UISlider;
+        let slider:UISlider = sender as! UISlider
         switch(slider){
         case goalSlider:
-            goalAmountText.text = String(Int(slider.value)) + " oz"
+            goalAmountText.text = String(Helper.roundFloatToOneDecimal(slider.value)) + " " + currentUnit
+            defaults.setFloat(Helper.roundFloatToOneDecimal(slider.value), forKey: "goalAmount")
             break;
         case leftSlider:
-            leftAmountText.text = String(Int(slider.value)) + " oz"
+            leftAmountText.text = String(Helper.roundFloatToOneDecimal(slider.value)) + " " + currentUnit
+            defaults.setFloat(Helper.roundFloatToOneDecimal(slider.value), forKey: "leftAmount")
             break;
         case middleSlider:
-            middleAmountText.text = String(Int(slider.value)) + " oz"
+            middleAmountText.text = String(Helper.roundFloatToOneDecimal(slider.value)) + " " + currentUnit
+
+            defaults.setFloat(Helper.roundFloatToOneDecimal(slider.value), forKey: "middleAmount")
             break;
         case rightSlider:
-            rightAmountText.text = String(Int(slider.value)) + " oz"
+            rightAmountText.text = String(Helper.roundFloatToOneDecimal(slider.value)) + " " + currentUnit
+
+            defaults.setFloat(Helper.roundFloatToOneDecimal(slider.value), forKey: "rightAmount")
             break;
         default:
             break;
         }
+    }
+    
+    func setUserDefaults(){
+        currentUnit = defaults.valueForKey("unit") as! String
+        
+        goalSlider.value = defaults.floatForKey("goalAmount")
+        goalAmountText.text = String(defaults.floatForKey("goalAmount")) + " " + currentUnit
+
+        leftSlider.value = defaults.floatForKey("leftAmount")
+        leftAmountText.text = String(defaults.floatForKey("leftAmount")) + " " + currentUnit
+
+        middleSlider.value = defaults.floatForKey("middleAmount")
+        middleAmountText.text = String(defaults.floatForKey("middleAmount")) + " " + currentUnit
+
+        rightSlider.value = defaults.floatForKey("rightAmount")
+        rightAmountText.text = String(defaults.floatForKey("rightAmount")) + " " + currentUnit
     }
 
     /*

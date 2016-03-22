@@ -13,9 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if(!defaults.boolForKey("haveLaunchedBefore")){
+            defaults.setValue("oz", forKey: "unit")
+            defaults.setFloat(100.0, forKey: "goalAmount")
+            defaults.setFloat(5.0, forKey: "leftAmount")
+            defaults.setFloat(10.0, forKey: "middleAmount")
+            defaults.setFloat(20.0, forKey: "rightAmount")
+            defaults.setBool(true, forKey: "haveLaunchedBefore")
+        }
+        
         return true
     }
 

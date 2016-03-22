@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F75A7651C98E5040055D4A2 /* DrinkProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F75A7641C98E5040055D4A2 /* DrinkProgressViewController.swift */; };
 		8FCC74CF1C9D01FA00017CCF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCC74CE1C9D01FA00017CCF /* SettingsViewController.swift */; };
+		8FCD78921CA0D3180085C2AA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCD78911CA0D3180085C2AA /* Helper.swift */; };
 		8FF3B9761C928E63004DD372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3B9751C928E63004DD372 /* AppDelegate.swift */; };
 		8FF3B97F1C928E63004DD372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3B97D1C928E63004DD372 /* Main.storyboard */; };
 		8FF3B9811C928E63004DD372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3B9801C928E63004DD372 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		8F75A7641C98E5040055D4A2 /* DrinkProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkProgressViewController.swift; sourceTree = "<group>"; };
 		8FCC74CE1C9D01FA00017CCF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8FCD78911CA0D3180085C2AA /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		8FF3B9721C928E63004DD372 /* DrinkSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3B9751C928E63004DD372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FF3B97E1C928E63004DD372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				8F75A7641C98E5040055D4A2 /* DrinkProgressViewController.swift */,
 				8FF3B9AB1C93B48C004DD372 /* DrinkProgressView.swift */,
 				8FCC74CE1C9D01FA00017CCF /* SettingsViewController.swift */,
+				8FCD78911CA0D3180085C2AA /* Helper.swift */,
 				8FF3B9801C928E63004DD372 /* Assets.xcassets */,
 				8FF3B9821C928E63004DD372 /* LaunchScreen.storyboard */,
 				8FF3B9851C928E63004DD372 /* Info.plist */,
@@ -267,6 +270,7 @@
 			files = (
 				8F75A7651C98E5040055D4A2 /* DrinkProgressViewController.swift in Sources */,
 				8FF3B9AC1C93B48C004DD372 /* DrinkProgressView.swift in Sources */,
+				8FCD78921CA0D3180085C2AA /* Helper.swift in Sources */,
 				8FF3B9A81C92925F004DD372 /* MainPageViewController.swift in Sources */,
 				8FF3B9761C928E63004DD372 /* AppDelegate.swift in Sources */,
 				8FCC74CF1C9D01FA00017CCF /* SettingsViewController.swift in Sources */,

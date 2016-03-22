@@ -10,14 +10,27 @@ import UIKit
 
 class DrinkProgressViewController: UIViewController {
 
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    private var currentUnit:String = ""
+    
     @IBOutlet var drinkProgressView: DrinkProgressView!
 
     @IBOutlet var leftDrinkButton: UIButton!
     @IBOutlet var middleDrinkButton: UIButton!
     @IBOutlet var rightDrinkButton: UIButton!
+    
+    @IBOutlet var leftAmountLabel: UILabel!
+    @IBOutlet var middleAmountLabel: UILabel!
+    @IBOutlet var rightAmountLabel: UILabel!
+    
+    @IBOutlet var leftUnitLabel: UILabel!
+    @IBOutlet var middleUnitLabel: UILabel!
+    @IBOutlet var rightUnitLabel: UILabel!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.drinkProgressView.setAttributes(1.0, percentage: 0.00, unit: "Gallons")
         
         //buttons
@@ -37,6 +50,20 @@ class DrinkProgressViewController: UIViewController {
         self.rightDrinkButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         self.rightDrinkButton.layer.shadowOpacity = 0.5
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        currentUnit = defaults.valueForKey("unit") as! String
+        //amounts
+        self.leftAmountLabel.text = String(defaults.floatForKey("leftAmount"))
+        self.middleAmountLabel.text = String(defaults.floatForKey("middleAmount"))
+        self.rightAmountLabel.text = String(defaults.floatForKey("rightAmount"))
+        //units
+        self.leftUnitLabel.text = currentUnit
+        self.middleUnitLabel.text = currentUnit
+        self.rightUnitLabel.text = currentUnit
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,15 +71,23 @@ class DrinkProgressViewController: UIViewController {
     }
     
     @IBAction func leftDrink(sender: AnyObject){
-        self.drinkProgressView.addWater(0.05)
+        let value = getPercentageOfWaterToAdd(defaults.floatForKey("leftAmount"))
+        self.drinkProgressView.addWater(value)
     }
     
     @IBAction func middleDrink(sender: AnyObject){
-        self.drinkProgressView.addWater(0.10)
+        let value = getPercentageOfWaterToAdd(defaults.floatForKey("middleAmount"))
+        self.drinkProgressView.addWater(value)
     }
     
     @IBAction func rightDrink(sender: AnyObject){
-        self.drinkProgressView.addWater(0.20)
+        let value = getPercentageOfWaterToAdd(defaults.floatForKey("rightAmount"))
+        self.drinkProgressView.addWater(value)
+    }
+    
+    func getPercentageOfWaterToAdd(addedWaterAmount:Float) -> CGFloat{
+        let percentToFill = CGFloat(addedWaterAmount)/CGFloat(defaults.floatForKey("goalAmount"))
+        return percentToFill
     }
 
     /*
