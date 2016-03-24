@@ -294,7 +294,7 @@
                                 <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="10" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="lrk-YZ-Rpr">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="lrk-YZ-Rpr">
                                 <rect key="frame" x="38" y="162" width="338" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="2Ep-n6-u5A" eventType="valueChanged" id="JCT-pM-iVT"/>

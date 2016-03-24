@@ -46,10 +46,60 @@ class SettingsViewController: UIViewController {
         let segcontrol: UISegmentedControl = sender as! UISegmentedControl
         if(segcontrol.selectedSegmentIndex == 0){
             defaults.setValue("oz", forKey: "unit")
+            
+            var newValue = goalSlider.value/29.5735
+            goalSlider.minimumValue = 10
+            goalSlider.maximumValue = 300
+            goalSlider.value = newValue
+            defaults.setFloat(Helper.roundFloatToOneDecimal(goalSlider.value), forKey: "goalAmount")
+            
+            newValue = leftSlider.value/29.5735
+            leftSlider.minimumValue = 1
+            leftSlider.maximumValue = 100
+            leftSlider.value = newValue
+            defaults.setFloat(Helper.roundFloatToOneDecimal(leftSlider.value), forKey: "leftAmount")
+            
+            newValue = middleSlider.value/29.5735
+            middleSlider.minimumValue = 1
+            middleSlider.maximumValue = 100
+            middleSlider.value = newValue
+            defaults.setFloat(Helper.roundFloatToOneDecimal(middleSlider.value), forKey: "middleAmount")
+
+            newValue = rightSlider.value/29.5735
+            rightSlider.minimumValue = 1
+            rightSlider.maximumValue = 100
+            rightSlider.value = newValue
+            defaults.setFloat(Helper.roundFloatToOneDecimal(rightSlider.value), forKey: "rightAmount")
+            
             setUserDefaults()
         }
         else{
-            defaults.setValue("ml", forKey: "unit")
+            defaults.setValue("mL", forKey: "unit")
+            
+            var newValue = goalSlider.value*29.5735
+            goalSlider.minimumValue = 100
+            goalSlider.maximumValue = 9000
+            goalSlider.value = newValue
+            defaults.setFloat(Helper.roundFloatToOneDecimal(goalSlider.value), forKey: "goalAmount")
+            
+            newValue = leftSlider.value*29.5735
+            leftSlider.minimumValue = 10
+            leftSlider.maximumValue = 3000
+            leftSlider.value = newValue
+            defaults.setFloat(Helper.roundFloatToOneDecimal(leftSlider.value), forKey: "leftAmount")
+            
+            newValue = middleSlider.value*29.5735
+            middleSlider.minimumValue = 10
+            middleSlider.maximumValue = 3000
+            middleSlider.value = newValue
+            defaults.setFloat(Helper.roundFloatToOneDecimal(middleSlider.value), forKey: "middleAmount")
+            
+            newValue = rightSlider.value*29.5735
+            rightSlider.minimumValue = 10
+            rightSlider.maximumValue = 3000
+            rightSlider.value = newValue
+            defaults.setFloat(Helper.roundFloatToOneDecimal(rightSlider.value), forKey: "rightAmount")
+
             setUserDefaults()
         }
     }
@@ -82,6 +132,12 @@ class SettingsViewController: UIViewController {
     
     func setUserDefaults(){
         currentUnit = defaults.valueForKey("unit") as! String
+        if(currentUnit == "oz"){
+            unitSegmentController.selectedSegmentIndex = 0
+        }
+        else{
+            unitSegmentController.selectedSegmentIndex = 1
+        }
         
         goalSlider.value = defaults.floatForKey("goalAmount")
         goalAmountText.text = String(defaults.floatForKey("goalAmount")) + " " + currentUnit
