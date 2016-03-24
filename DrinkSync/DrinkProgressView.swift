@@ -17,7 +17,8 @@ class DrinkProgressView: UIView {
     private var cupViewLayer2: CAShapeLayer = CAShapeLayer()
     private var cupViewLayer3: CAShapeLayer = CAShapeLayer()
     private var cupViewLayer4: CAShapeLayer = CAShapeLayer()
-    private var progressLabel: UILabel!
+    
+    var progressLabel: UILabel!
     private var resetButton: UIButton!
     private var percentLabel: UILabel!
     

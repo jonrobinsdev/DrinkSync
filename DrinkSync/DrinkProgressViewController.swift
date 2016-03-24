@@ -30,7 +30,7 @@ class DrinkProgressViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.drinkProgressView.setAttributes(1.0, percentage: 0.00, unit: "Gallons")
+        self.drinkProgressView.setAttributes(1.0, percentage: 0.00, unit: "oz")
         //button setup
         self.leftDrinkButton.layer.cornerRadius = leftDrinkButton.frame.size.width/4
         self.leftDrinkButton.layer.shadowRadius = 3.0
@@ -60,6 +60,10 @@ class DrinkProgressViewController: UIViewController {
         self.leftUnitLabel.text = currentUnit
         self.middleUnitLabel.text = currentUnit
         self.rightUnitLabel.text = currentUnit
+        
+        if self.drinkProgressView.progressLabel != nil{
+            self.drinkProgressView.setProgressLabelWithReset(false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
