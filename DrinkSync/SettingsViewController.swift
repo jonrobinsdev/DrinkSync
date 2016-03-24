@@ -137,6 +137,14 @@ class SettingsViewController: UIViewController {
         }
         else{
             unitSegmentController.selectedSegmentIndex = 1
+            goalSlider.minimumValue = 100
+            goalSlider.maximumValue = 9000
+            leftSlider.minimumValue = 10
+            leftSlider.maximumValue = 3000
+            middleSlider.minimumValue = 10
+            middleSlider.maximumValue = 3000
+            rightSlider.minimumValue = 10
+            rightSlider.maximumValue = 3000
         }
         
         goalSlider.value = defaults.floatForKey("goalAmount")

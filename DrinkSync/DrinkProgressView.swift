@@ -10,13 +10,16 @@ import UIKit
 
 class DrinkProgressView: UIView {
     
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    
     private var cupView: UIView!
     private var cupViewLayer1: CAShapeLayer = CAShapeLayer()
     private var cupViewLayer2: CAShapeLayer = CAShapeLayer()
     private var cupViewLayer3: CAShapeLayer = CAShapeLayer()
     private var cupViewLayer4: CAShapeLayer = CAShapeLayer()
-    private var percentLabel: UILabel!
+    private var progressLabel: UILabel!
     private var resetButton: UIButton!
+    private var percentLabel: UILabel!
     
     private let lineWidth: CGFloat = 2
     private let pi = M_PI
@@ -34,6 +37,19 @@ class DrinkProgressView: UIView {
         if(cupView == nil){
             cupView = UIView(frame: self.frame)
             self.addSubview(cupView)
+        }
+        
+        //progress label
+        if(self.progressLabel == nil){
+            progressLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+            progressLabel.font = UIFont(name: "Menlo", size: 20.0)
+            progressLabel.textColor = UIColor.init(colorLiteralRed: 86.0/255.0, green: 102.0/255.0, blue: 108.0/255.0, alpha: 1.0)
+            progressLabel.textAlignment = .Center
+            //progressLabel.numberOfLines = 0
+            self.addSubview(progressLabel)
+            progressLabel.center.x = progressLabel.superview!.center.x
+            progressLabel.center.y = progressLabel.superview!.bounds.height/12
+            self.setProgressLabelWithReset(false)
         }
         
         //reset button
@@ -206,7 +222,6 @@ class DrinkProgressView: UIView {
         //callback for water drop animation
         CATransaction.setCompletionBlock({
             waterDropView.removeFromSuperview()
-            
             //cup shake animation
             let animation = CABasicAnimation(keyPath: "position")
             animation.duration = 0.20
@@ -226,6 +241,8 @@ class DrinkProgressView: UIView {
             
             self.resetButton.hidden = false
             self.resetButton.enabled = true
+            
+            self.setProgressLabelWithReset(false)
             self.checkGoalIsMet()
         })
         
@@ -239,7 +256,21 @@ class DrinkProgressView: UIView {
         CATransaction.commit()
     }
     
-    func checkGoalIsMet(){
+    func setProgressLabelWithReset(reset:Bool){
+        let currentUnit = defaults.valueForKey("unit") as! String
+        var waterAmountSoFar:String = ""
+        if reset == false {
+            waterAmountSoFar = String(Helper.roundCGFloatToOneDecimal(self.currentPercentage * CGFloat(defaults.floatForKey("goalAmount")))) + " " + currentUnit
+        }
+        else{
+            waterAmountSoFar = "0.0 " + currentUnit
+        }
+        let goalAmount:String = String(defaults.floatForKey("goalAmount")) + " " + currentUnit
+        let goalProgressText:String = waterAmountSoFar + " / " + goalAmount
+        self.progressLabel.text = goalProgressText
+    }
+    
+    private func checkGoalIsMet(){
         if(self.currentPercentage >= 1.0){
             goalCompleted()
         } //had to add in because CGFloat for some reason doesn't round all the way
@@ -248,12 +279,17 @@ class DrinkProgressView: UIView {
         }
     }
     
-    func goalCompleted(){
+    private func goalCompleted(){
         //add animation here for goal complete
     }
     
     func resetDrinkProgressView(){
         self.resetButton.hidden = true
         self.setAttributes(self.goalAmount, percentage: 0.0, unit: self.unit)
+        self.setProgressLabelWithReset(true)
+    }
+    
+    func getCurrentPercentage() -> CGFloat{
+        return self.currentPercentage
     }
 }

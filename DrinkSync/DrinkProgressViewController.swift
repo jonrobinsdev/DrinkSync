@@ -14,7 +14,7 @@ class DrinkProgressViewController: UIViewController {
     private var currentUnit:String = ""
     
     @IBOutlet var drinkProgressView: DrinkProgressView!
-
+    
     @IBOutlet var leftDrinkButton: UIButton!
     @IBOutlet var middleDrinkButton: UIButton!
     @IBOutlet var rightDrinkButton: UIButton!
@@ -30,10 +30,8 @@ class DrinkProgressViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.drinkProgressView.setAttributes(1.0, percentage: 0.00, unit: "Gallons")
-        
-        //buttons
+        //button setup
         self.leftDrinkButton.layer.cornerRadius = leftDrinkButton.frame.size.width/4
         self.leftDrinkButton.layer.shadowRadius = 3.0
         self.leftDrinkButton.layer.shadowColor = UIColor.blackColor().CGColor
@@ -53,7 +51,6 @@ class DrinkProgressViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
         currentUnit = defaults.valueForKey("unit") as! String
         //amounts
         self.leftAmountLabel.text = String(defaults.floatForKey("leftAmount"))
@@ -85,11 +82,11 @@ class DrinkProgressViewController: UIViewController {
         self.drinkProgressView.addWater(value)
     }
     
-    func getPercentageOfWaterToAdd(addedWaterAmount:Float) -> CGFloat{
+    private func getPercentageOfWaterToAdd(addedWaterAmount:Float) -> CGFloat{
         let percentToFill = CGFloat(addedWaterAmount)/CGFloat(defaults.floatForKey("goalAmount"))
         return percentToFill
     }
-
+    
     /*
     // MARK: - Navigation
 

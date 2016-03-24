@@ -15,6 +15,12 @@ class Helper{
         value = round(value)
         value /= 10
         return value
-    }
+     }
     
+    static func roundCGFloatToOneDecimal(var value:CGFloat) -> CGFloat{
+        value *= 10
+        value = round(value)
+        value /= 10
+        return value
+    }
 }

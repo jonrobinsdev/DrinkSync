@@ -181,20 +181,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoy-d6-RZD" customClass="DrinkProgressView" customModule="DrinkSync" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Gallon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ru-kT-LNA">
-                                                <rect key="frame" x="0.0" y="15" width="414" height="24"/>
-                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                                <color key="textColor" red="0.33705382685714036" green="0.39890401634355788" blue="0.42275698153737373" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="5Ru-kT-LNA" secondAttribute="trailing" id="4VN-K6-H4w"/>
-                                            <constraint firstItem="5Ru-kT-LNA" firstAttribute="top" secondItem="eoy-d6-RZD" secondAttribute="top" constant="15" id="Bei-aK-Eca"/>
-                                            <constraint firstItem="5Ru-kT-LNA" firstAttribute="leading" secondItem="eoy-d6-RZD" secondAttribute="leading" id="MU1-fw-1Ei"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85739248991012573" green="0.90870398283004761" blue="0.96624559164047241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
