@@ -42,11 +42,11 @@ class DrinkProgressView: UIView {
         
         //progress label
         if(self.progressLabel == nil){
-            progressLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+            progressLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 150))
             progressLabel.font = UIFont(name: "Menlo", size: 20.0)
             progressLabel.textColor = UIColor.init(colorLiteralRed: 86.0/255.0, green: 102.0/255.0, blue: 108.0/255.0, alpha: 1.0)
             progressLabel.textAlignment = .Center
-            //progressLabel.numberOfLines = 0
+            progressLabel.adjustsFontSizeToFitWidth = true
             self.addSubview(progressLabel)
             progressLabel.center.x = progressLabel.superview!.center.x
             progressLabel.center.y = progressLabel.superview!.bounds.height/12

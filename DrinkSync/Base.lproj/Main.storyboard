@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fTE-jE-1D1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fTE-jE-1D1">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -235,38 +235,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Drink" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBu-9z-bvY">
-                                <rect key="frame" x="40" y="232" width="374" height="16"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
-                                <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="TNr-Ag-10Z">
-                                <rect key="frame" x="38" y="258" width="338" height="31"/>
+                                <rect key="frame" x="38" y="279" width="338" height="31"/>
+                                <color key="thumbTintColor" red="0.4431372549" green="0.60392156860000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="2Ep-n6-u5A" eventType="valueChanged" id="mZY-Ob-hTJ"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Middle Drink" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkW-HS-zsz">
-                                <rect key="frame" x="40" y="298" width="374" height="16"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
-                                <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Drink" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAv-xj-MAR">
-                                <rect key="frame" x="40" y="364" width="374" height="16"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
-                                <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sHO-1j-ozW">
-                                <rect key="frame" x="38" y="390" width="338" height="31"/>
+                                <rect key="frame" x="38" y="471" width="338" height="31"/>
+                                <color key="thumbTintColor" red="0.91764705882352937" green="0.8901960784313725" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="2Ep-n6-u5A" eventType="valueChanged" id="bKE-Vp-sgg"/>
                                 </connections>
                             </slider>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-12-Vm2">
-                                <rect key="frame" x="40" y="68" width="334" height="29"/>
+                                <rect key="frame" x="40" y="89" width="334" height="29"/>
                                 <segments>
                                     <segment title="oz"/>
                                     <segment title="mL"/>
@@ -275,50 +259,177 @@
                                     <action selector="segmentedControlChanged:" destination="2Ep-n6-u5A" eventType="valueChanged" id="YYW-es-YCH"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adF-Pv-cQP">
-                                <rect key="frame" x="25" y="40" width="364" height="18"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adF-Pv-cQP">
+                                <rect key="frame" x="25" y="40" width="364" height="19"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                 <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="lrk-YZ-Rpr">
-                                <rect key="frame" x="38" y="162" width="338" height="31"/>
+                                <rect key="frame" x="38" y="183" width="338" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="2Ep-n6-u5A" eventType="valueChanged" id="JCT-pM-iVT"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 oz" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JS7-Dv-s13">
-                                <rect key="frame" x="0.0" y="135" width="374" height="18"/>
+                                <rect key="frame" x="0.0" y="156" width="374" height="18"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 oz" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEH-Au-MGV">
-                                <rect key="frame" x="0.0" y="231" width="374" height="18"/>
+                                <rect key="frame" x="0.0" y="252" width="374" height="18"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 oz" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTQ-4a-X8Y">
-                                <rect key="frame" x="0.0" y="363" width="374" height="18"/>
+                                <rect key="frame" x="0.0" y="444" width="374" height="18"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Middle Drink:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkW-HS-zsz">
+                                <rect key="frame" x="65" y="349" width="349" height="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
+                                <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Drink:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAv-xj-MAR">
+                                <rect key="frame" x="65" y="445" width="349" height="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
+                                <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-FL-jiY">
+                                <rect key="frame" x="40" y="443" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="Lso-NP-zx1"/>
+                                    <constraint firstAttribute="width" constant="40" id="Tni-w8-uwO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="eOT-02-Co9"/>
+                                    <constraint firstAttribute="height" constant="20" id="i5b-vW-FaI"/>
+                                    <constraint firstAttribute="height" constant="40" id="oXZ-8J-XSS"/>
+                                    <constraint firstAttribute="width" constant="20" id="t3k-0W-4aZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="uQf-gM-Znr"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="wx8-fP-Hff"/>
+                                </constraints>
+                                <state key="normal" image="infoicon"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wx8-fP-Hff"/>
+                                        <exclude reference="oXZ-8J-XSS"/>
+                                        <exclude reference="Tni-w8-uwO"/>
+                                        <exclude reference="eOT-02-Co9"/>
+                                        <exclude reference="Lso-NP-zx1"/>
+                                        <exclude reference="uQf-gM-Znr"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="rightAmountButtonPressed:" destination="2Ep-n6-u5A" eventType="touchUpInside" id="c8h-fM-acg"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 oz" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4i-aI-KDZ">
-                                <rect key="frame" x="0.0" y="297" width="374" height="18"/>
+                                <rect key="frame" x="10" y="348" width="364" height="18"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xa0-cZ-zTp">
-                                <rect key="frame" x="38" y="324" width="338" height="31"/>
+                                <rect key="frame" x="38" y="375" width="338" height="31"/>
+                                <color key="thumbTintColor" red="0.90980392156862744" green="0.46666666666666667" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="2Ep-n6-u5A" eventType="valueChanged" id="HPa-Sd-dZj"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goal Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-GF-lbH">
-                                <rect key="frame" x="40" y="136" width="374" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goal:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-GF-lbH">
+                                <rect key="frame" x="65" y="157" width="349" height="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
+                                <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Av-Cb-E4s">
+                                <rect key="frame" x="40" y="155" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="JJN-nu-7l9"/>
+                                    <constraint firstAttribute="height" constant="40" id="JdO-S0-gR5"/>
+                                    <constraint firstAttribute="height" constant="20" id="Q5k-0K-Nks"/>
+                                    <constraint firstAttribute="width" constant="40" id="fOP-Xq-2gW"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="gbo-M9-kHB"/>
+                                    <constraint firstAttribute="width" constant="20" id="hhO-4q-dU0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="m38-sk-cod"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="nv4-5k-Gh1"/>
+                                </constraints>
+                                <state key="normal" image="infoicon"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JJN-nu-7l9"/>
+                                        <exclude reference="JdO-S0-gR5"/>
+                                        <exclude reference="fOP-Xq-2gW"/>
+                                        <exclude reference="gbo-M9-kHB"/>
+                                        <exclude reference="m38-sk-cod"/>
+                                        <exclude reference="nv4-5k-Gh1"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="goalAmountButtonPressed:" destination="2Ep-n6-u5A" eventType="touchUpInside" id="8OD-4n-2o8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8g-lc-i0h">
+                                <rect key="frame" x="40" y="251" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="Hug-A5-7DV"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Mrs-qW-tsp"/>
+                                    <constraint firstAttribute="width" constant="20" id="NE7-Te-aQQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="V5f-gO-ZgY"/>
+                                    <constraint firstAttribute="width" constant="40" id="Z4X-Ra-h9b"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="a0v-mn-c7H"/>
+                                    <constraint firstAttribute="height" constant="20" id="b9K-1G-dZU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="laf-iu-M1f"/>
+                                </constraints>
+                                <state key="normal" image="infoicon"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="a0v-mn-c7H"/>
+                                        <exclude reference="V5f-gO-ZgY"/>
+                                        <exclude reference="Z4X-Ra-h9b"/>
+                                        <exclude reference="Mrs-qW-tsp"/>
+                                        <exclude reference="laf-iu-M1f"/>
+                                        <exclude reference="Hug-A5-7DV"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="leftAmountButtonPressed:" destination="2Ep-n6-u5A" eventType="touchUpInside" id="nPk-tI-Dai"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHg-GM-3au">
+                                <rect key="frame" x="40" y="347" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CGb-Ur-eHc"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="CvO-wl-cwZ"/>
+                                    <constraint firstAttribute="height" constant="20" id="DwN-1X-d5Q"/>
+                                    <constraint firstAttribute="width" constant="20" id="QIx-GS-plm"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="cQ7-5y-SoM"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="kvm-n7-5fJ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="uvt-wO-d82"/>
+                                    <constraint firstAttribute="width" constant="40" id="vWb-I5-zFj"/>
+                                </constraints>
+                                <state key="normal" image="infoicon"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CvO-wl-cwZ"/>
+                                        <exclude reference="CGb-Ur-eHc"/>
+                                        <exclude reference="vWb-I5-zFj"/>
+                                        <exclude reference="uvt-wO-d82"/>
+                                        <exclude reference="kvm-n7-5fJ"/>
+                                        <exclude reference="cQ7-5y-SoM"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="middleAmountButtonPressed:" destination="2Ep-n6-u5A" eventType="touchUpInside" id="Yhq-lG-VPX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Drink:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBu-9z-bvY">
+                                <rect key="frame" x="65" y="253" width="349" height="16"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <color key="textColor" red="0.33705382690000002" green="0.3989040163" blue="0.42275698150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -327,6 +438,7 @@
                         <color key="backgroundColor" red="0.85739248991012573" green="0.90870398283004761" blue="0.96624559164047241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="adF-Pv-cQP" firstAttribute="top" secondItem="1EV-Mb-nIl" secondAttribute="bottom" constant="20" id="1FB-f8-1B1"/>
+                            <constraint firstItem="G4i-aI-KDZ" firstAttribute="leading" secondItem="IHg-GM-3au" secondAttribute="trailing" constant="-60" id="1cr-Bb-sZT"/>
                             <constraint firstItem="Foa-GF-lbH" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="2Wp-ie-Eec"/>
                             <constraint firstAttribute="trailing" secondItem="JS7-Dv-s13" secondAttribute="trailing" constant="40" id="3FZ-m0-jdc"/>
                             <constraint firstItem="ho5-12-Vm2" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="3UH-RX-cFD"/>
@@ -336,53 +448,94 @@
                             <constraint firstItem="hTQ-4a-X8Y" firstAttribute="centerY" secondItem="MAv-xj-MAR" secondAttribute="centerY" id="9Q3-z3-lLJ"/>
                             <constraint firstAttribute="trailing" secondItem="hTQ-4a-X8Y" secondAttribute="trailing" constant="40" id="ASd-KV-hIs"/>
                             <constraint firstItem="hTQ-4a-X8Y" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" id="AZL-Bd-bqm"/>
+                            <constraint firstItem="FkW-HS-zsz" firstAttribute="leading" secondItem="IHg-GM-3au" secondAttribute="trailing" constant="10" id="AcU-Q3-qVm"/>
                             <constraint firstAttribute="trailing" secondItem="MAv-xj-MAR" secondAttribute="trailing" id="Bw1-T2-laT"/>
                             <constraint firstItem="cEH-Au-MGV" firstAttribute="centerY" secondItem="xBu-9z-bvY" secondAttribute="centerY" id="E80-uO-nqu"/>
+                            <constraint firstItem="xBu-9z-bvY" firstAttribute="leading" secondItem="K8g-lc-i0h" secondAttribute="trailing" constant="10" id="F4G-Hw-OBd"/>
+                            <constraint firstItem="0Av-Cb-E4s" firstAttribute="top" secondItem="Foa-GF-lbH" secondAttribute="bottom" constant="-4" id="FDh-oQ-jjC"/>
                             <constraint firstItem="TNr-Ag-10Z" firstAttribute="top" secondItem="xBu-9z-bvY" secondAttribute="bottom" constant="10" id="GU2-hG-sKy"/>
                             <constraint firstItem="adF-Pv-cQP" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leadingMargin" constant="-5" id="Gic-gN-g0P"/>
                             <constraint firstAttribute="trailing" secondItem="ho5-12-Vm2" secondAttribute="trailing" constant="40" id="Gq0-at-ZW9"/>
                             <constraint firstItem="cEH-Au-MGV" firstAttribute="top" secondItem="lrk-YZ-Rpr" secondAttribute="bottom" constant="40" id="HHa-Vp-kyU"/>
+                            <constraint firstItem="K8g-lc-i0h" firstAttribute="top" secondItem="cEH-Au-MGV" secondAttribute="bottom" constant="-4" id="I42-8f-lZ5"/>
                             <constraint firstItem="JS7-Dv-s13" firstAttribute="top" secondItem="ho5-12-Vm2" secondAttribute="bottom" constant="40" id="Ipk-54-Xhq"/>
+                            <constraint firstItem="0Av-Cb-E4s" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="Kkc-FR-01C"/>
                             <constraint firstAttribute="trailing" secondItem="Xa0-cZ-zTp" secondAttribute="trailing" constant="40" id="L22-ph-pjy"/>
                             <constraint firstItem="JS7-Dv-s13" firstAttribute="centerY" secondItem="Foa-GF-lbH" secondAttribute="centerY" id="L4o-vc-3RS"/>
                             <constraint firstItem="cEH-Au-MGV" firstAttribute="top" secondItem="lrk-YZ-Rpr" secondAttribute="bottom" constant="40" id="N0n-lH-YwA"/>
                             <constraint firstAttribute="trailing" secondItem="FkW-HS-zsz" secondAttribute="trailing" id="PHZ-z6-GKr"/>
                             <constraint firstItem="Xa0-cZ-zTp" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="PvF-7W-ReE"/>
                             <constraint firstItem="adF-Pv-cQP" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="25" id="Q3C-EB-N34"/>
+                            <constraint firstItem="zDP-FL-jiY" firstAttribute="centerY" secondItem="MAv-xj-MAR" secondAttribute="centerY" id="REg-hg-GIO"/>
                             <constraint firstItem="sHO-1j-ozW" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="VyC-lN-ieM"/>
                             <constraint firstItem="ho5-12-Vm2" firstAttribute="top" secondItem="adF-Pv-cQP" secondAttribute="bottom" constant="10" id="WCj-no-U62"/>
+                            <constraint firstItem="K8g-lc-i0h" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="WLn-pS-cub"/>
                             <constraint firstItem="TNr-Ag-10Z" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="XRB-i0-Yt8"/>
                             <constraint firstItem="G4i-aI-KDZ" firstAttribute="centerY" secondItem="FkW-HS-zsz" secondAttribute="centerY" id="Xfj-Jb-zi2"/>
+                            <constraint firstItem="0Av-Cb-E4s" firstAttribute="centerY" secondItem="Foa-GF-lbH" secondAttribute="centerY" id="Y4a-fO-TS4"/>
                             <constraint firstItem="Foa-GF-lbH" firstAttribute="top" secondItem="ho5-12-Vm2" secondAttribute="bottom" constant="40" id="ZRn-la-Gl6"/>
-                            <constraint firstItem="FkW-HS-zsz" firstAttribute="top" secondItem="TNr-Ag-10Z" secondAttribute="bottom" constant="10" id="bJC-Qv-uQy"/>
+                            <constraint firstItem="hTQ-4a-X8Y" firstAttribute="leading" secondItem="zDP-FL-jiY" secondAttribute="trailing" constant="-30" id="adP-hS-KDi"/>
+                            <constraint firstItem="FkW-HS-zsz" firstAttribute="top" secondItem="TNr-Ag-10Z" secondAttribute="bottom" constant="40" id="bJC-Qv-uQy"/>
                             <constraint firstItem="lrk-YZ-Rpr" firstAttribute="top" secondItem="Foa-GF-lbH" secondAttribute="bottom" constant="10" id="bOn-bF-wuy"/>
+                            <constraint firstItem="xBu-9z-bvY" firstAttribute="leading" secondItem="K8g-lc-i0h" secondAttribute="trailing" constant="5" id="ci7-dG-IN4"/>
                             <constraint firstItem="Fqd-N0-cVz" firstAttribute="top" secondItem="sHO-1j-ozW" secondAttribute="bottom" constant="182" id="eBk-Po-APf"/>
+                            <constraint firstItem="MAv-xj-MAR" firstAttribute="leading" secondItem="zDP-FL-jiY" secondAttribute="trailing" constant="5" id="eXw-af-im9"/>
+                            <constraint firstItem="Foa-GF-lbH" firstAttribute="leading" secondItem="0Av-Cb-E4s" secondAttribute="trailing" constant="10" id="fCQ-Ik-c1R"/>
                             <constraint firstItem="xBu-9z-bvY" firstAttribute="top" secondItem="lrk-YZ-Rpr" secondAttribute="bottom" constant="40" id="fFC-H1-wNw"/>
                             <constraint firstAttribute="trailing" secondItem="adF-Pv-cQP" secondAttribute="trailing" constant="25" id="fWm-rz-VRP"/>
-                            <constraint firstItem="MAv-xj-MAR" firstAttribute="top" secondItem="Xa0-cZ-zTp" secondAttribute="bottom" constant="10" id="g7X-rN-51P"/>
+                            <constraint firstItem="FkW-HS-zsz" firstAttribute="leading" secondItem="IHg-GM-3au" secondAttribute="trailing" constant="5" id="frH-Zt-plW"/>
+                            <constraint firstItem="MAv-xj-MAR" firstAttribute="top" secondItem="Xa0-cZ-zTp" secondAttribute="bottom" constant="40" id="g7X-rN-51P"/>
+                            <constraint firstItem="Foa-GF-lbH" firstAttribute="leading" secondItem="0Av-Cb-E4s" secondAttribute="trailing" constant="5" id="iQW-Zx-QQa"/>
+                            <constraint firstItem="G4i-aI-KDZ" firstAttribute="leading" secondItem="IHg-GM-3au" secondAttribute="trailing" constant="-31" id="iZN-l9-57Y"/>
                             <constraint firstItem="sHO-1j-ozW" firstAttribute="top" secondItem="MAv-xj-MAR" secondAttribute="bottom" constant="10" id="lBJ-DJ-vjQ"/>
+                            <constraint firstItem="IHg-GM-3au" firstAttribute="top" secondItem="G4i-aI-KDZ" secondAttribute="bottom" constant="-4" id="lKx-1l-qYU"/>
                             <constraint firstItem="Xa0-cZ-zTp" firstAttribute="top" secondItem="FkW-HS-zsz" secondAttribute="bottom" constant="10" id="lb4-LW-FiU"/>
                             <constraint firstAttribute="trailing" secondItem="lrk-YZ-Rpr" secondAttribute="trailing" constant="40" id="mcq-GK-dBG"/>
                             <constraint firstAttribute="trailing" secondItem="TNr-Ag-10Z" secondAttribute="trailing" constant="40" id="mlP-9e-ia5"/>
+                            <constraint firstItem="IHg-GM-3au" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="muo-E4-Xdt"/>
                             <constraint firstAttribute="trailing" secondItem="G4i-aI-KDZ" secondAttribute="trailing" constant="40" id="myl-HH-jvw"/>
-                            <constraint firstItem="G4i-aI-KDZ" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" id="nRs-2U-C4Y"/>
+                            <constraint firstItem="G4i-aI-KDZ" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="10" id="nRs-2U-C4Y"/>
                             <constraint firstAttribute="trailing" secondItem="sHO-1j-ozW" secondAttribute="trailing" constant="40" id="ogk-lY-KnM"/>
-                            <constraint firstItem="ho5-12-Vm2" firstAttribute="top" secondItem="adF-Pv-cQP" secondAttribute="bottom" constant="10" id="pkQ-M2-ln4"/>
+                            <constraint firstItem="ho5-12-Vm2" firstAttribute="top" secondItem="adF-Pv-cQP" secondAttribute="bottom" constant="30" id="pkQ-M2-ln4"/>
+                            <constraint firstItem="zDP-FL-jiY" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="qsj-EQ-svE"/>
                             <constraint firstItem="FkW-HS-zsz" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="s0Z-xl-OLj"/>
                             <constraint firstItem="Fqd-N0-cVz" firstAttribute="top" secondItem="sHO-1j-ozW" secondAttribute="bottom" constant="316" id="sce-g6-OO2"/>
                             <constraint firstItem="xBu-9z-bvY" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="srO-ue-aiN"/>
                             <constraint firstAttribute="trailing" secondItem="Foa-GF-lbH" secondAttribute="trailing" id="tEp-Ha-qdJ"/>
                             <constraint firstItem="cEH-Au-MGV" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" id="tNZ-Va-A5j"/>
+                            <constraint firstItem="0Av-Cb-E4s" firstAttribute="centerY" secondItem="Foa-GF-lbH" secondAttribute="centerY" id="ty0-jv-cf5"/>
+                            <constraint firstItem="cEH-Au-MGV" firstAttribute="leading" secondItem="K8g-lc-i0h" secondAttribute="trailing" constant="-30" id="uPg-OF-oaU"/>
                             <constraint firstItem="JS7-Dv-s13" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" id="v60-YW-Uqg"/>
+                            <constraint firstItem="IHg-GM-3au" firstAttribute="centerY" secondItem="FkW-HS-zsz" secondAttribute="centerY" id="wHV-Kk-tQw"/>
+                            <constraint firstItem="K8g-lc-i0h" firstAttribute="centerY" secondItem="xBu-9z-bvY" secondAttribute="centerY" id="x5l-ez-okj"/>
                             <constraint firstItem="MAv-xj-MAR" firstAttribute="leading" secondItem="yvQ-49-ZZU" secondAttribute="leading" constant="40" id="ygo-H7-Nme"/>
+                            <constraint firstItem="zDP-FL-jiY" firstAttribute="top" secondItem="hTQ-4a-X8Y" secondAttribute="bottom" constant="-4" id="zU5-il-E5K"/>
+                            <constraint firstItem="MAv-xj-MAR" firstAttribute="leading" secondItem="zDP-FL-jiY" secondAttribute="trailing" constant="10" id="zg6-bA-4tk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Gic-gN-g0P"/>
                                 <exclude reference="WCj-no-U62"/>
                                 <exclude reference="Ipk-54-Xhq"/>
+                                <exclude reference="FDh-oQ-jjC"/>
+                                <exclude reference="ty0-jv-cf5"/>
+                                <exclude reference="2Wp-ie-Eec"/>
+                                <exclude reference="fCQ-Ik-c1R"/>
                                 <exclude reference="HHa-Vp-kyU"/>
                                 <exclude reference="N0n-lH-YwA"/>
+                                <exclude reference="uPg-OF-oaU"/>
+                                <exclude reference="I42-8f-lZ5"/>
+                                <exclude reference="F4G-Hw-OBd"/>
+                                <exclude reference="srO-ue-aiN"/>
+                                <exclude reference="1cr-Bb-sZT"/>
+                                <exclude reference="iZN-l9-57Y"/>
+                                <exclude reference="lKx-1l-qYU"/>
+                                <exclude reference="AcU-Q3-qVm"/>
+                                <exclude reference="s0Z-xl-OLj"/>
+                                <exclude reference="adP-hS-KDi"/>
+                                <exclude reference="ygo-H7-Nme"/>
+                                <exclude reference="zg6-bA-4tk"/>
+                                <exclude reference="zU5-il-E5K"/>
                                 <exclude reference="eBk-Po-APf"/>
                                 <exclude reference="sce-g6-OO2"/>
                             </mask>
@@ -408,6 +561,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="infoicon" width="256" height="256"/>
         <image name="plus" width="512" height="512"/>
     </resources>
 </document>

@@ -160,6 +160,20 @@ class SettingsViewController: UIViewController {
         rightAmountText.text = String(defaults.floatForKey("rightAmount")) + " " + currentUnit
     }
 
+    
+    @IBAction func goalAmountButtonPressed(sender: AnyObject) {
+        
+    }
+    @IBAction func leftAmountButtonPressed(sender: AnyObject) {
+        
+    }
+    @IBAction func middleAmountButtonPressed(sender: AnyObject) {
+        
+    }
+    @IBAction func rightAmountButtonPressed(sender: AnyObject) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 
