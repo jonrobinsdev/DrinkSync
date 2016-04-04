@@ -267,8 +267,15 @@ class DrinkProgressView: UIView {
             waterAmountSoFar = "0.0 " + currentUnit
         }
         let goalAmount:String = String(defaults.floatForKey("goalAmount")) + " " + currentUnit
-        let goalProgressText:String = waterAmountSoFar + " / " + goalAmount
-        self.progressLabel.text = goalProgressText
+        let goalProgressText:NSMutableAttributedString = NSMutableAttributedString(string: waterAmountSoFar + " / " + goalAmount)
+        
+        let indexOfSlashCharacter = Helper.indexOfCharacter("/", string: String(goalProgressText))
+        let range = NSMakeRange(indexOfSlashCharacter!, 1)
+
+        let bigFont:UIFont = UIFont(name: "Menlo", size: 35.0)!
+        goalProgressText.addAttribute(kCTFontAttributeName as String, value: bigFont, range: range)
+        
+        self.progressLabel.attributedText = goalProgressText
     }
     
     private func checkGoalIsMet(){

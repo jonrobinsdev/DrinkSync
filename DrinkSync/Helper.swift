@@ -23,4 +23,11 @@ class Helper{
         value /= 10
         return value
     }
+    
+    static func indexOfCharacter(char: Character, string: String) -> Int? {
+        if let idx = string.characters.indexOf(char) {
+            return string.startIndex.distanceTo(idx)
+        }
+        return nil
+    }
 }

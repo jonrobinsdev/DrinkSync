@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DrinkSync/DrinkProgressView.swift"
-            timestampString = "481263061.918914"
+            timestampString = "481330818.954932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "resetDrinkProgressView()"
             landmarkType = "5">
          </BreakpointContent>
