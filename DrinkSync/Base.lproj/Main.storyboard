@@ -316,12 +316,12 @@
                                 <state key="normal" image="infoicon"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="wx8-fP-Hff"/>
-                                        <exclude reference="oXZ-8J-XSS"/>
+                                        <exclude reference="Lso-NP-zx1"/>
                                         <exclude reference="Tni-w8-uwO"/>
                                         <exclude reference="eOT-02-Co9"/>
-                                        <exclude reference="Lso-NP-zx1"/>
+                                        <exclude reference="oXZ-8J-XSS"/>
                                         <exclude reference="uQf-gM-Znr"/>
+                                        <exclude reference="wx8-fP-Hff"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -389,12 +389,12 @@
                                 <state key="normal" image="infoicon"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="a0v-mn-c7H"/>
+                                        <exclude reference="Hug-A5-7DV"/>
+                                        <exclude reference="Mrs-qW-tsp"/>
                                         <exclude reference="V5f-gO-ZgY"/>
                                         <exclude reference="Z4X-Ra-h9b"/>
-                                        <exclude reference="Mrs-qW-tsp"/>
+                                        <exclude reference="a0v-mn-c7H"/>
                                         <exclude reference="laf-iu-M1f"/>
-                                        <exclude reference="Hug-A5-7DV"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -416,12 +416,12 @@
                                 <state key="normal" image="infoicon"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="CvO-wl-cwZ"/>
                                         <exclude reference="CGb-Ur-eHc"/>
-                                        <exclude reference="vWb-I5-zFj"/>
-                                        <exclude reference="uvt-wO-d82"/>
-                                        <exclude reference="kvm-n7-5fJ"/>
+                                        <exclude reference="CvO-wl-cwZ"/>
                                         <exclude reference="cQ7-5y-SoM"/>
+                                        <exclude reference="kvm-n7-5fJ"/>
+                                        <exclude reference="uvt-wO-d82"/>
+                                        <exclude reference="vWb-I5-zFj"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -533,9 +533,9 @@
                                 <exclude reference="AcU-Q3-qVm"/>
                                 <exclude reference="s0Z-xl-OLj"/>
                                 <exclude reference="adP-hS-KDi"/>
+                                <exclude reference="zU5-il-E5K"/>
                                 <exclude reference="ygo-H7-Nme"/>
                                 <exclude reference="zg6-bA-4tk"/>
-                                <exclude reference="zU5-il-E5K"/>
                                 <exclude reference="eBk-Po-APf"/>
                                 <exclude reference="sce-g6-OO2"/>
                             </mask>

@@ -13,19 +13,19 @@ class SettingsViewController: UIViewController {
     private let defaults = NSUserDefaults.standardUserDefaults()
     private var currentUnit:String = ""
     
-    @IBOutlet var topSpacingConstraint: NSLayoutConstraint!
+    @IBOutlet private var topSpacingConstraint: NSLayoutConstraint!
     
-    @IBOutlet var unitSegmentController: UISegmentedControl!
+    @IBOutlet private var unitSegmentController: UISegmentedControl!
     
-    @IBOutlet var goalSlider: UISlider!
-    @IBOutlet var leftSlider: UISlider!
-    @IBOutlet var middleSlider: UISlider!
-    @IBOutlet var rightSlider: UISlider!
+    @IBOutlet private var goalSlider: UISlider!
+    @IBOutlet private var leftSlider: UISlider!
+    @IBOutlet private var middleSlider: UISlider!
+    @IBOutlet private var rightSlider: UISlider!
     
-    @IBOutlet var goalAmountText: UILabel!
-    @IBOutlet var leftAmountText: UILabel!
-    @IBOutlet var middleAmountText: UILabel!
-    @IBOutlet var rightAmountText: UILabel!
+    @IBOutlet private var goalAmountText: UILabel!
+    @IBOutlet private var leftAmountText: UILabel!
+    @IBOutlet private var middleAmountText: UILabel!
+    @IBOutlet private var rightAmountText: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,16 +162,44 @@ class SettingsViewController: UIViewController {
 
     
     @IBAction func goalAmountButtonPressed(sender: AnyObject) {
-        
+        let popUpView:DrinkAmountPopUpView = self.getPopUpView()
+        popUpView.setAmount(defaults.floatForKey("goalAmount"))
+        self.view.addSubview(popUpView)
+        popUpView.layer.addAnimation(getPopUpViewAnimation(popUpView), forKey: "position")
     }
+    
     @IBAction func leftAmountButtonPressed(sender: AnyObject) {
-        
+        let popUpView:DrinkAmountPopUpView = self.getPopUpView()
+        popUpView.setAmount(defaults.floatForKey("leftAmount"))
+        self.view.addSubview(popUpView)
+        popUpView.layer.addAnimation(getPopUpViewAnimation(popUpView), forKey: "position")
     }
     @IBAction func middleAmountButtonPressed(sender: AnyObject) {
-        
+        let popUpView:DrinkAmountPopUpView = self.getPopUpView()
+        popUpView.setAmount(defaults.floatForKey("middleAmount"))
+        self.view.addSubview(popUpView)
+        popUpView.layer.addAnimation(getPopUpViewAnimation(popUpView), forKey: "position")
     }
     @IBAction func rightAmountButtonPressed(sender: AnyObject) {
-        
+        let popUpView:DrinkAmountPopUpView = self.getPopUpView()
+        popUpView.setAmount(defaults.floatForKey("rightAmount"))
+        self.view.addSubview(popUpView)
+        popUpView.layer.addAnimation(getPopUpViewAnimation(popUpView), forKey: "position")
+    }
+    
+    private func getPopUpView() -> DrinkAmountPopUpView{
+        let frame:CGRect = CGRectMake(0, self.view.frame.size.height/4.5, self.view.frame.size.width, self.view.frame.size.height/2.5)
+        let popUpView: DrinkAmountPopUpView = DrinkAmountPopUpView.instanceFromNib()
+        popUpView.frame = frame
+        return popUpView
+    }
+    
+    private func getPopUpViewAnimation(popUpView:UIView) -> CABasicAnimation{
+        let slideInAnimation = CABasicAnimation(keyPath: "position")
+        slideInAnimation.duration = 0.50
+        slideInAnimation.fromValue = NSValue(CGPoint: CGPointMake(popUpView.center.x+600, popUpView.center.y))
+        slideInAnimation.toValue = NSValue(CGPoint: CGPointMake(popUpView.center.x, popUpView.center.y))
+        return slideInAnimation
     }
     
     /*

@@ -13,19 +13,19 @@ class DrinkProgressViewController: UIViewController {
     private let defaults = NSUserDefaults.standardUserDefaults()
     private var currentUnit:String = ""
     
-    @IBOutlet var drinkProgressView: DrinkProgressView!
+    @IBOutlet private var drinkProgressView: DrinkProgressView!
     
-    @IBOutlet var leftDrinkButton: UIButton!
-    @IBOutlet var middleDrinkButton: UIButton!
-    @IBOutlet var rightDrinkButton: UIButton!
+    @IBOutlet private var leftDrinkButton: UIButton!
+    @IBOutlet private var middleDrinkButton: UIButton!
+    @IBOutlet private var rightDrinkButton: UIButton!
     
-    @IBOutlet var leftAmountLabel: UILabel!
-    @IBOutlet var middleAmountLabel: UILabel!
-    @IBOutlet var rightAmountLabel: UILabel!
+    @IBOutlet private var leftAmountLabel: UILabel!
+    @IBOutlet private var middleAmountLabel: UILabel!
+    @IBOutlet private var rightAmountLabel: UILabel!
     
-    @IBOutlet var leftUnitLabel: UILabel!
-    @IBOutlet var middleUnitLabel: UILabel!
-    @IBOutlet var rightUnitLabel: UILabel!
+    @IBOutlet private var leftUnitLabel: UILabel!
+    @IBOutlet private var middleUnitLabel: UILabel!
+    @IBOutlet private var rightUnitLabel: UILabel!
 
     
     override func viewDidLoad() {
