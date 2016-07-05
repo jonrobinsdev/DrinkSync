@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fTE-jE-1D1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fTE-jE-1D1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -34,7 +34,7 @@
                                 <color key="backgroundColor" red="0.85739248991012573" green="0.90870398283004761" blue="0.96624559164047241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.85882352939999995" green="0.90980392160000001" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ivi-jI-3Pn" firstAttribute="top" secondItem="Iyq-fU-ekI" secondAttribute="bottom" id="8ad-H4-PFU"/>
                             <constraint firstAttribute="trailing" secondItem="Iyq-fU-ekI" secondAttribute="trailing" id="K1j-tS-MQY"/>
@@ -197,7 +197,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.85882352939999995" green="0.90980392160000001" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4Sr-G0-pTf" firstAttribute="top" secondItem="zSb-Ox-uWJ" secondAttribute="bottom" id="KOY-Tg-R1q"/>
                             <constraint firstItem="4eN-Mn-JcX" firstAttribute="top" secondItem="4Sr-G0-pTf" secondAttribute="bottom" id="Q8M-A3-AuS"/>
@@ -435,7 +435,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.85739248991012573" green="0.90870398283004761" blue="0.96624559164047241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.85882352941176465" green="0.90980392156862744" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="adF-Pv-cQP" firstAttribute="top" secondItem="1EV-Mb-nIl" secondAttribute="bottom" constant="20" id="1FB-f8-1B1"/>
                             <constraint firstItem="G4i-aI-KDZ" firstAttribute="leading" secondItem="IHg-GM-3au" secondAttribute="trailing" constant="-60" id="1cr-Bb-sZT"/>

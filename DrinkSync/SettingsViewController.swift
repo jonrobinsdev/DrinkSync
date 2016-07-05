@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+protocol SettingsDelegate{
+    func setUserDefaults()
+}
+
+class SettingsViewController: UIViewController, SettingsDelegate {
     
     private let defaults = NSUserDefaults.standardUserDefaults()
     private var currentUnit:String = ""
@@ -26,7 +30,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet private var leftAmountText: UILabel!
     @IBOutlet private var middleAmountText: UILabel!
     @IBOutlet private var rightAmountText: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.topSpacingConstraint.constant = 15
@@ -131,6 +135,7 @@ class SettingsViewController: UIViewController {
     }
     
     func setUserDefaults(){
+        print("HELLOOOO!")
         currentUnit = defaults.valueForKey("unit") as! String
         if(currentUnit == "oz"){
             unitSegmentController.selectedSegmentIndex = 0
@@ -164,6 +169,7 @@ class SettingsViewController: UIViewController {
     @IBAction func goalAmountButtonPressed(sender: AnyObject) {
         let popUpView:DrinkAmountPopUpView = self.getPopUpView()
         popUpView.setAmount(defaults.floatForKey("goalAmount"))
+        popUpView.selectedAmount = "goalAmount"
         self.view.addSubview(popUpView)
         popUpView.layer.addAnimation(getPopUpViewAnimation(popUpView), forKey: "position")
     }
@@ -171,26 +177,32 @@ class SettingsViewController: UIViewController {
     @IBAction func leftAmountButtonPressed(sender: AnyObject) {
         let popUpView:DrinkAmountPopUpView = self.getPopUpView()
         popUpView.setAmount(defaults.floatForKey("leftAmount"))
+        popUpView.selectedAmount = "leftAmount"
         self.view.addSubview(popUpView)
         popUpView.layer.addAnimation(getPopUpViewAnimation(popUpView), forKey: "position")
     }
+    
     @IBAction func middleAmountButtonPressed(sender: AnyObject) {
         let popUpView:DrinkAmountPopUpView = self.getPopUpView()
         popUpView.setAmount(defaults.floatForKey("middleAmount"))
+        popUpView.selectedAmount = "middleAmount"
         self.view.addSubview(popUpView)
         popUpView.layer.addAnimation(getPopUpViewAnimation(popUpView), forKey: "position")
     }
+    
     @IBAction func rightAmountButtonPressed(sender: AnyObject) {
         let popUpView:DrinkAmountPopUpView = self.getPopUpView()
         popUpView.setAmount(defaults.floatForKey("rightAmount"))
+        popUpView.selectedAmount = "rightAmount"
         self.view.addSubview(popUpView)
         popUpView.layer.addAnimation(getPopUpViewAnimation(popUpView), forKey: "position")
     }
     
     private func getPopUpView() -> DrinkAmountPopUpView{
-        let frame:CGRect = CGRectMake(0, self.view.frame.size.height/4.5, self.view.frame.size.width, self.view.frame.size.height/2.5)
+        let frame:CGRect = CGRectMake(0, self.view.frame.size.height/6.0, self.view.frame.size.width, self.view.frame.size.height/2.5)
         let popUpView: DrinkAmountPopUpView = DrinkAmountPopUpView.instanceFromNib()
         popUpView.frame = frame
+        popUpView.settingsDelegate = self
         return popUpView
     }
     

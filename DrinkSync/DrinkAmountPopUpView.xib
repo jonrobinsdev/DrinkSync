@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,16 +11,20 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view alpha="0.97999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okb-YW-JCm">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="1" green="0.71698180619999996" blue="0.74484462259999995" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pU-Xp-YIU">
-                    <rect key="frame" x="20" y="219" width="106" height="26"/>
-                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
+                    <rect key="frame" x="20" y="222" width="92" height="23"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
                     <color key="textColor" red="0.43921568630000002" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLk-dP-HWn">
-                    <rect key="frame" x="146" y="218" width="434" height="30"/>
-                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
-                    <textInputTraits key="textInputTraits"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLk-dP-HWn">
+                    <rect key="frame" x="132" y="219" width="448" height="30"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34M-jt-y7B">
                     <rect key="frame" x="275" y="270" width="50" height="60"/>
@@ -75,16 +79,18 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.71698180619244622" blue="0.74484462257399797" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="okb-YW-JCm" secondAttribute="trailing" id="0Gn-26-igQ"/>
                 <constraint firstItem="8EL-1A-Lhs" firstAttribute="centerX" secondItem="34M-jt-y7B" secondAttribute="centerX" id="1RJ-LL-vce"/>
                 <constraint firstItem="tXa-6E-rVh" firstAttribute="width" secondItem="8EL-1A-Lhs" secondAttribute="width" id="8vk-UO-tqr"/>
                 <constraint firstItem="4vW-77-PHW" firstAttribute="centerY" secondItem="34M-jt-y7B" secondAttribute="centerY" id="Afu-Oc-wbU"/>
                 <constraint firstItem="34M-jt-y7B" firstAttribute="centerY" secondItem="cH1-FU-Mft" secondAttribute="centerY" id="BbT-SF-xiq"/>
                 <constraint firstAttribute="trailing" secondItem="yLk-dP-HWn" secondAttribute="trailing" constant="20" id="Bu0-tS-abD"/>
+                <constraint firstItem="okb-YW-JCm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EkV-qb-gzm"/>
                 <constraint firstItem="tXa-6E-rVh" firstAttribute="centerY" secondItem="8EL-1A-Lhs" secondAttribute="centerY" id="HdO-zt-pIa"/>
                 <constraint firstItem="cH1-FU-Mft" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="98" id="JsW-nS-Qx5"/>
                 <constraint firstItem="yLk-dP-HWn" firstAttribute="centerY" secondItem="4pU-Xp-YIU" secondAttribute="centerY" id="K9s-Dx-oc9"/>
+                <constraint firstItem="okb-YW-JCm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kk2-xD-dOQ"/>
                 <constraint firstItem="34M-jt-y7B" firstAttribute="leading" secondItem="cH1-FU-Mft" secondAttribute="trailing" constant="20" id="UXj-G9-HVm"/>
                 <constraint firstItem="tXa-6E-rVh" firstAttribute="leading" secondItem="8EL-1A-Lhs" secondAttribute="trailing" constant="25" id="Vlj-4l-ex2"/>
                 <constraint firstAttribute="trailing" secondItem="4vW-77-PHW" secondAttribute="trailing" constant="20" id="Xji-Ei-pbf"/>
@@ -96,6 +102,7 @@
                 <constraint firstItem="4pU-Xp-YIU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="fgF-Vk-lD3"/>
                 <constraint firstItem="4pU-Xp-YIU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="hoY-t4-J2u"/>
                 <constraint firstItem="cH1-FU-Mft" firstAttribute="top" secondItem="4pU-Xp-YIU" secondAttribute="bottom" constant="25" id="huC-jK-Oa3"/>
+                <constraint firstAttribute="bottom" secondItem="okb-YW-JCm" secondAttribute="bottom" id="mth-XB-4cX"/>
                 <constraint firstItem="34M-jt-y7B" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ny7-mH-Hvw"/>
                 <constraint firstAttribute="trailing" secondItem="tXa-6E-rVh" secondAttribute="trailing" constant="20" id="pXy-hu-Ycw"/>
                 <constraint firstItem="cH1-FU-Mft" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="peo-GU-Lmd"/>
